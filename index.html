@@ -1400,94 +1400,55 @@ main#posts, main[id="posts"] { display:none!important; visibility:hidden!importa
 <!-- 통합 교육자료실: 분야 선택 및 제목 검색 기능 -->
 <script id="library-filter-fix">
 (function () {
-  'use strict';
-  function initLibraryFilters() {
-    const root = document.getElementById('library-new');
-    if (!root) return;
-    const keyword = root.querySelector('#lib-search');
-    const category = root.querySelector('#lib-category');
-    const count = root.querySelector('#lib-count');
-    const groups = Array.from(root.querySelectorAll('.lib-group'));
-    const entries = Array.from(root.querySelectorAll('.lib-entry'));
-    const buttons = Array.from(root.querySelectorAll('[data-lib-sort]'));
-    if (!keyword || !category || !count || !entries.length) return;
-    const norm = value => String(value || '').normalize('NFC').trim().toLocaleLowerCase('ko-KR');
-    let mode = 'new';
-    const storageKey = 'james127-library-open-count-v1';
-    function readClicks() {
-      try {
-        const data = JSON.parse(localStorage.getItem(storageKey) || '{}');
-        return data && typeof data === 'object' && !Array.isArray(data) ? data : {};
-      } catch (_) { return {}; }
-    }
-    function fileId(entry) {
-      const link = entry.querySelector('a[href]');
-      return link ? link.getAttribute('href') : (entry.dataset.title || '');
-    }
-    const initial = new Map(entries.map((entry, index) => [entry, index]));
-    function sequence(entry) {
-      const order = Number(entry.dataset.libOrder);
-      return Number.isFinite(order) ? order : initial.get(entry);
-    }
-    function compareEntries(a, b, clicks) {
-      if (mode === 'popular') {
-        const diff = (Number(clicks[fileId(b)]) || 0) - (Number(clicks[fileId(a)]) || 0);
-        if (diff) return diff;
-      }
-      const diff = mode === 'old' ? sequence(a) - sequence(b) : sequence(b) - sequence(a);
-      return diff || initial.get(a) - initial.get(b);
-    }
-    function applyFilters() {
-      const selected = norm(category.value);
-      const searchTerm = norm(keyword.value);
-      const clicks = readClicks();
-      let visible = 0;
-      entries.forEach(entry => {
-        const show = (!selected || norm(entry.dataset.cat) === selected) &&
-          (!searchTerm || norm(entry.dataset.title || entry.textContent).includes(searchTerm));
-        entry.hidden = !show;
-        entry.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-      groups.forEach(group => {
-        const container = group.querySelector('.lib-group-grid');
-        const items = Array.from(group.querySelectorAll('.lib-entry'));
-        const shown = items.filter(item => !item.hidden);
-        group.hidden = shown.length === 0;
-        group.style.display = shown.length ? '' : 'none';
-        const heading = group.querySelector('h3');
-        if (heading) heading.textContent = group.dataset.group + ' · ' + shown.length + '개';
-        if (container) items.sort((a,b) => compareEntries(a,b,clicks)).forEach(item => container.appendChild(item));
-      });
-      // Keep categories visually grouped, sort their cards within each category.
-      count.textContent = visible + '개 자료 표시 / 전체 ' + entries.length + '개';
-      count.setAttribute('aria-live', 'polite');
-      buttons.forEach(button => {
-        const selectedButton = button.dataset.libSort === mode;
-        button.classList.toggle('is-active', selectedButton);
-        button.setAttribute('aria-pressed', String(selectedButton));
-      });
-    }
-    keyword.addEventListener('input', applyFilters);
-    category.addEventListener('change', applyFilters);
-    buttons.forEach(button => button.addEventListener('click', () => {
-      mode = button.dataset.libSort;
-      applyFilters();
-    }));
-    root.addEventListener('click', event => {
-      const link = event.target.closest('.lib-entry a[href]');
-      if (!link) return;
-      const entry = link.closest('.lib-entry');
-      const id = fileId(entry);
-      const clicks = readClicks();
-      clicks[id] = (Number(clicks[id]) || 0) + 1;
-      try { localStorage.setItem(storageKey, JSON.stringify(clicks)); } catch (_) {}
-      if (mode === 'popular') applyFilters();
-    });
-    applyFilters();
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLibraryFilters, { once: true });
-  } else { initLibraryFilters(); }
+ 'use strict';
+ const categories = ['다문화·이주민','보건·건강교육','감정·소통·돌봄','의료선교·신앙','기타 교육자료'];
+ const root=document.getElementById('library-new'); if(!root) return;
+ const keyword=root.querySelector('#lib-search'), category=root.querySelector('#lib-category'),count=root.querySelector('#lib-count');
+ const grid=root.querySelector('.lib-grid'),buttons=[...root.querySelectorAll('[data-lib-sort]')];
+ let mode='new'; const storageKey='james127-library-open-count-v1';
+ function clicks(){try{return JSON.parse(localStorage.getItem(storageKey)||'{}')||{}}catch(e){return {}}}
+ function normalize(v){return String(v||'').toLocaleLowerCase().trim()}
+ // Startup fallback: original 64 static cards remain intact until JSON is loaded.
+ let records=[...grid.querySelectorAll('.lib-entry')].map((entry,i)=>({
+  id:Number(entry.dataset.libOrder)||i+1,title:entry.querySelector('h3')?.textContent||'',category:entry.dataset.cat||'기타 교육자료',
+  url:entry.querySelector('a[href]')?.getAttribute('href')||'',image:entry.querySelector('img')?.getAttribute('src')||'',
+  type:(entry.querySelector('small')?.textContent||'PDF').split('·').pop().trim()
+ }));
+ function card(item){
+  const article=document.createElement('article');article.className='lib-entry';article.dataset.cat=item.category;article.dataset.title=item.title;article.dataset.libOrder=String(item.id);
+  const small=document.createElement('small');small.textContent=item.category+' · '+(item.type||'PDF');article.appendChild(small);
+  if(item.image){const im=document.createElement('img');im.alt=item.title;im.loading='lazy';im.src=item.image;article.appendChild(im)}
+  const h=document.createElement('h3');h.textContent=item.title;article.appendChild(h);
+  const a=document.createElement('a');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='자료 열기 / 다운로드';article.appendChild(a);
+  return article;
+ }
+ function render(){
+  const c=clicks(),term=normalize(keyword?.value),cat=category?.value||'';
+  const items=records.filter(x=>(!cat||x.category===cat)&&(!term||normalize(x.title).includes(term)));
+  items.sort((a,b)=> {if(mode==='popular'){const diff=(Number(c[b.url])||0)-(Number(c[a.url])||0);if(diff)return diff}
+    return mode==='old'?a.id-b.id:b.id-a.id});
+  grid.replaceChildren();
+  categories.forEach((name,i)=>{
+    const subset=items.filter(x=>x.category===name);if(!subset.length)return;
+    const section=document.createElement('section');section.className='lib-group';section.dataset.group=name;
+    const heading=document.createElement('h3');heading.id='lib-group-'+i;heading.textContent=name+' · '+subset.length+'개';section.setAttribute('aria-labelledby',heading.id);
+    const inner=document.createElement('div');inner.className='lib-group-grid';subset.forEach(x=>inner.appendChild(card(x)));
+    section.append(heading,inner);grid.appendChild(section);
+  });
+  count.textContent=items.length+'개 자료 표시 / 전체 '+records.length+'개';count.setAttribute('aria-live','polite');
+  buttons.forEach(b=>{let active=b.dataset.libSort===mode;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',String(active))});
+  const desc=root.querySelector('.lib-desc');if(desc)desc.textContent='교육자료 '+records.length+'개를 5개 분야로 묶었습니다. 분야 선택과 제목 검색을 함께 이용할 수 있습니다.';
+ }
+ keyword?.addEventListener('input',render);category?.addEventListener('change',render);
+ buttons.forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.libSort;render()}));
+ grid.addEventListener('click',e=>{const a=e.target.closest('.lib-entry a[href]');if(!a)return;const c=clicks();const key=a.getAttribute('href');c[key]=(Number(c[key])||0)+1;try{localStorage.setItem(storageKey,JSON.stringify(c))}catch(e){}if(mode==='popular')render()});
+ // Use same-origin JSON. If unavailable, 64 embedded entries are still functional.
+ fetch('assets/materials.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('materials.json not found');return r.json()}).then(data=>{
+  if(!data||!Array.isArray(data.items))throw Error('invalid manifest');
+  const clean=data.items.filter(x=>x && Number.isFinite(Number(x.id)) && typeof x.title==='string' && typeof x.url==='string' && x.url.startsWith('assets/') && categories.includes(x.category))
+    .map(x=>({...x,id:Number(x.id)}));
+  if(!clean.length)throw Error('empty manifest');records=clean;render();
+ }).catch(err=>{console.warn('자료 목록 파일을 불러오지 못하여 기본 자료를 표시합니다:',err);render()});
+ render();
 })();
 </script>

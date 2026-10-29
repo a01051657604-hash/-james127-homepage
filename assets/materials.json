@@ -1,0 +1,517 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": 1,
+      "title": "(중요) 보건교육 대사 최종(260224)",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-001-995472828cb1.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 2,
+      "title": "(최종) 두 세대의 건강을 잇는 우리의 역할 시선",
+      "category": "기타 교육자료",
+      "url": "assets/library/doc-002-95ba04d18a83.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 3,
+      "title": "(최종수정) Malinis_na_Tubig_Mangyan_Pastors_40min",
+      "category": "의료선교·신앙",
+      "url": "assets/library/doc-003-99c38c9c421c.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 4,
+      "title": "(팀원용) 2027년 필리핀 전도메세지(기본)",
+      "category": "의료선교·신앙",
+      "url": "assets/library/doc-004-38ac213f6d56.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 5,
+      "title": "(팀원용) 2027년 필리핀 전도메세지(따갈로그어 교육자료 추가본)",
+      "category": "의료선교·신앙",
+      "url": "assets/library/doc-005-f20706da30fa.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 6,
+      "title": "(홍보용품) 이주민 밴드 시안",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-006-1372e73b7348.png",
+      "image": "assets/library/doc-006-1372e73b7348.png",
+      "type": "PNG"
+    },
+    {
+      "id": 7,
+      "title": "1. 부모님 살피기 실천카드(배포용)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-007-14f56326466b.png",
+      "image": "assets/library/doc-007-14f56326466b.png",
+      "type": "PNG"
+    },
+    {
+      "id": 8,
+      "title": "2. 자녀 들여다보기 실천카드(배포용)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-008-f1d013917936.png",
+      "image": "assets/library/doc-008-f1d013917936.png",
+      "type": "PNG"
+    },
+    {
+      "id": 9,
+      "title": "2023년 부산시 코로나19 중간보고회 워크샵 강의(최종  23.11.28)_2026_04_17_16_29_26",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-009-6bd9d391f91c.pptx",
+      "image": "",
+      "type": "PPTX"
+    },
+    {
+      "id": 10,
+      "title": "2026 나에게 힘이 되는 복지서비스",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-010-57ad16804185.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 11,
+      "title": "2026년 필리핀 전도메세지(요약)",
+      "category": "의료선교·신앙",
+      "url": "assets/library/doc-011-8f52fb2ca486.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 12,
+      "title": "260907 사상구보건소_찾아가는 건강상담소 (3)",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-012-ed514b961174.jpg",
+      "image": "assets/library/doc-012-ed514b961174.jpg",
+      "type": "JPG"
+    },
+    {
+      "id": 13,
+      "title": "60가지 감정 그림(어린이)",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-013-a3dd920ef1d5.png",
+      "image": "assets/library/doc-013-a3dd920ef1d5.png",
+      "type": "PNG"
+    },
+    {
+      "id": 14,
+      "title": "60가지 감정 그림2",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-014-ea453a745390.png",
+      "image": "assets/library/doc-014-ea453a745390.png",
+      "type": "PNG"
+    },
+    {
+      "id": 15,
+      "title": "60가지 감정그림(어른)",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-015-fc374549a67e.png",
+      "image": "assets/library/doc-015-fc374549a67e.png",
+      "type": "PNG"
+    },
+    {
+      "id": 16,
+      "title": "[202610] 부산형 통합돌봄 가이드맵",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-016-a9ee2fd6d8a6.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 17,
+      "title": "외국인 근로자 등 소외계층 의료서비스 지원사업 안내",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-017-15bcc37f6973.png",
+      "image": "assets/library/doc-017-15bcc37f6973.png",
+      "type": "PNG"
+    },
+    {
+      "id": 18,
+      "title": "감정에 이름 붙이기: 감정 라벨링 이해",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-018-5dfbfdbad837.png",
+      "image": "assets/library/doc-018-5dfbfdbad837.png",
+      "type": "PNG"
+    },
+    {
+      "id": 19,
+      "title": "나 전달법의 필요성: 서로 이해하는 대화법",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-019-7ee98ee894af.png",
+      "image": "assets/library/doc-019-7ee98ee894af.png",
+      "type": "PNG"
+    },
+    {
+      "id": 20,
+      "title": "English (A4)@2x",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-020-71deb515f750.png",
+      "image": "assets/library/doc-020-71deb515f750.png",
+      "type": "PNG"
+    },
+    {
+      "id": 21,
+      "title": "Vaccine Info · English (A4)@2x",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-021-c38545cd475d.png",
+      "image": "assets/library/doc-021-c38545cd475d.png",
+      "type": "PNG"
+    },
+    {
+      "id": 22,
+      "title": "감정 이해와 라벨링 인포그래픽",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-022-2113437af33a.png",
+      "image": "assets/library/doc-022-2113437af33a.png",
+      "type": "PNG"
+    },
+    {
+      "id": 23,
+      "title": "관계를 살리는 리더의 대화1",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-023-275d0bda493f.jpg",
+      "image": "assets/library/doc-023-275d0bda493f.jpg",
+      "type": "JPG"
+    },
+    {
+      "id": 24,
+      "title": "관계를 살리는 리더의 대화2",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-024-3cf531a4a1e9.jpg",
+      "image": "assets/library/doc-024-3cf531a4a1e9.jpg",
+      "type": "JPG"
+    },
+    {
+      "id": 25,
+      "title": "국내 의료 봉사 차트_2026_10_26_16_58_08",
+      "category": "의료선교·신앙",
+      "url": "assets/library/doc-025-c6fb6865a493.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 26,
+      "title": "근로자용_스트레칭포스터_A4_300dpi_인쇄용 (1)",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-026-052bfb8e6bca.png",
+      "image": "assets/library/doc-026-052bfb8e6bca.png",
+      "type": "PNG"
+    },
+    {
+      "id": 27,
+      "title": "근로자용_스트레칭포스터_A4_300dpi_인쇄용",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-027-4c1dc6bf5001.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 28,
+      "title": "농어촌_의료선교_현장안내문_2종_A4",
+      "category": "의료선교·신앙",
+      "url": "assets/library/doc-028-1b3f283c4e3c.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 29,
+      "title": "마음의 나무와 욕구 이해하기",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-029-db02781e9a91.png",
+      "image": "assets/library/doc-029-db02781e9a91.png",
+      "type": "PNG"
+    },
+    {
+      "id": 30,
+      "title": "백신 정보 · 한국어 (A4)@2x",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-030-62790156135d.png",
+      "image": "assets/library/doc-030-62790156135d.png",
+      "type": "PNG"
+    },
+    {
+      "id": 31,
+      "title": "부모님과 아이, 우리 가족 돌봄·의료 안내서 (부산 주민용)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-031-54457a028b44.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 32,
+      "title": "사상구외국인주민약국이용가이드북",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-032-b2cc5f2a346b.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 33,
+      "title": "상황 검정 바람(욕구)",
+      "category": "감정·소통·돌봄",
+      "url": "assets/library/doc-033-eb9845daba3b.png",
+      "image": "assets/library/doc-033-eb9845daba3b.png",
+      "type": "PNG"
+    },
+    {
+      "id": 34,
+      "title": "어운완 리플렛 (1)",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-034-857be1c7a699.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 35,
+      "title": "어운완 포스터",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-035-0a26e1b4d1b7.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 36,
+      "title": "유방암 수술을 앞둔 분을 위한 작은 안내서 — 소책자 디자인 (1)",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-036-5629533130d5.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 37,
+      "title": "의료선교_건강검진_안내책자_A4가로",
+      "category": "의료선교·신앙",
+      "url": "assets/library/doc-037-12a61976b1f6.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 38,
+      "title": "이주민 건강권 관련 안내문 교회와 지역단체용(2)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-038-35a843b7319d.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 39,
+      "title": "이주민 건강권 관련 안내문 보건소용(1)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-039-27aab168e519.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 40,
+      "title": "이주민 비자 종류 설명 및 건강권 내용(지역사회, 보건소, 교회 대상)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-040-be6ffd0013ac.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 41,
+      "title": "이주민 설명 포스터 1",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-041-4a9840bc08cf.png",
+      "image": "assets/library/doc-041-4a9840bc08cf.png",
+      "type": "PNG"
+    },
+    {
+      "id": 42,
+      "title": "이주민 설명 포스터 2",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-042-88560fee7790.png",
+      "image": "assets/library/doc-042-88560fee7790.png",
+      "type": "PNG"
+    },
+    {
+      "id": 43,
+      "title": "이주민 설명 포스터 3",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-043-df420fff450f.png",
+      "image": "assets/library/doc-043-df420fff450f.png",
+      "type": "PNG"
+    },
+    {
+      "id": 44,
+      "title": "이주민 설명 포스터 4(대표)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-044-f904c62253ff.png",
+      "image": "assets/library/doc-044-f904c62253ff.png",
+      "type": "PNG"
+    },
+    {
+      "id": 45,
+      "title": "주요건강정보안내(네팔)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-045-447734b05cf2.png",
+      "image": "assets/library/doc-045-447734b05cf2.png",
+      "type": "PNG"
+    },
+    {
+      "id": 46,
+      "title": "주요건강정보안내(러시아)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-046-e553342f1279.png",
+      "image": "assets/library/doc-046-e553342f1279.png",
+      "type": "PNG"
+    },
+    {
+      "id": 47,
+      "title": "주요건강정보안내(몽골)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-047-7a6f5896f30c.png",
+      "image": "assets/library/doc-047-7a6f5896f30c.png",
+      "type": "PNG"
+    },
+    {
+      "id": 48,
+      "title": "주요건강정보안내(미얀마)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-048-6edb2c25ee31.png",
+      "image": "assets/library/doc-048-6edb2c25ee31.png",
+      "type": "PNG"
+    },
+    {
+      "id": 49,
+      "title": "주요건강정보안내(방글라데시)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-049-03e4bda53274.png",
+      "image": "assets/library/doc-049-03e4bda53274.png",
+      "type": "PNG"
+    },
+    {
+      "id": 50,
+      "title": "주요건강정보안내(베트남)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-050-d4185b772509.png",
+      "image": "assets/library/doc-050-d4185b772509.png",
+      "type": "PNG"
+    },
+    {
+      "id": 51,
+      "title": "주요건강정보안내(스리랑카)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-051-5b082aa8b6aa.png",
+      "image": "assets/library/doc-051-5b082aa8b6aa.png",
+      "type": "PNG"
+    },
+    {
+      "id": 52,
+      "title": "주요건강정보안내(영어)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-052-e005cea8dfad.png",
+      "image": "assets/library/doc-052-e005cea8dfad.png",
+      "type": "PNG"
+    },
+    {
+      "id": 53,
+      "title": "주요건강정보안내(우즈베키스탄)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-053-7ca2c64c400e.png",
+      "image": "assets/library/doc-053-7ca2c64c400e.png",
+      "type": "PNG"
+    },
+    {
+      "id": 54,
+      "title": "주요건강정보안내(인도네시아)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-054-bde46c1c3a45.png",
+      "image": "assets/library/doc-054-bde46c1c3a45.png",
+      "type": "PNG"
+    },
+    {
+      "id": 55,
+      "title": "주요건강정보안내(중국)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-055-02d4e182bfeb.png",
+      "image": "assets/library/doc-055-02d4e182bfeb.png",
+      "type": "PNG"
+    },
+    {
+      "id": 56,
+      "title": "주요건강정보안내(캄보디아)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-056-3fd2fc7d190f.png",
+      "image": "assets/library/doc-056-3fd2fc7d190f.png",
+      "type": "PNG"
+    },
+    {
+      "id": 57,
+      "title": "주요건강정보안내(태국)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-057-8a5a361075e8.png",
+      "image": "assets/library/doc-057-8a5a361075e8.png",
+      "type": "PNG"
+    },
+    {
+      "id": 58,
+      "title": "주요건강정보안내(파키스탄)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-058-6d443597e395.png",
+      "image": "assets/library/doc-058-6d443597e395.png",
+      "type": "PNG"
+    },
+    {
+      "id": 59,
+      "title": "주요건강정보안내(필리핀)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-059-efa5ecb8e2b4.png",
+      "image": "assets/library/doc-059-efa5ecb8e2b4.png",
+      "type": "PNG"
+    },
+    {
+      "id": 60,
+      "title": "주요건강정보안내(한글)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-060-e8912d4d2c21.png",
+      "image": "assets/library/doc-060-e8912d4d2c21.png",
+      "type": "PNG"
+    },
+    {
+      "id": 61,
+      "title": "찾아가는 건강검진 안내문",
+      "category": "보건·건강교육",
+      "url": "assets/library/doc-061-aa58d5d81aaa.png",
+      "image": "assets/library/doc-061-aa58d5d81aaa.png",
+      "type": "PNG"
+    },
+    {
+      "id": 62,
+      "title": "한국어 (A4)@2x (1)",
+      "category": "다문화·이주민",
+      "url": "assets/library/doc-062-84c8de0da326.png",
+      "image": "assets/library/doc-062-84c8de0da326.png",
+      "type": "PNG"
+    },
+    {
+      "id": 63,
+      "title": "2027 필리핀 망얀족 보건교육 강의안",
+      "category": "의료선교·신앙",
+      "url": "assets/library/(중요) 2027년 필리핀 망얀족 보건교육 강의안(최종).pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 64,
+      "title": "필리핀 망얀족을 위한 증상별 대응방법",
+      "category": "의료선교·신앙",
+      "url": "assets/library/(중요) 필리핀 망얀족을 위한 증상별 대응방법.pdf",
+      "image": "",
+      "type": "PDF"
+    }
+  ]
+}
