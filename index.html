@@ -1,5 +1,6 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>나그네의 식탁</title>
+<meta name="description" content="나그네의 식탁의 신앙, 보건교육, 건강 관련 글과 자료를 소개합니다.">
 <!-- GitHub Pages edition: Claude 내부 첨부파일과 썸네일은 별도 업로드 후 연결해야 합니다. -->
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
@@ -1091,7 +1092,7 @@
       <ul class="posts" id="postList"></ul>
       <button type="button" class="totop" id="toTop" aria-label="맨 위로">↑</button>
       <p class="empty" id="empty" hidden>조건에 맞는 자료가 없습니다.</p>
-      <p class="note">첨부 자료는 이 페이지에서 바로 열람하실 수 있으며, 다운로드는 제공하지 않습니다.</p>
+      <p class="note">일부 첨부 자료는 원본 파일을 옮기는 중입니다. 자료명이 표시되어도 아직 열리지 않을 수 있습니다. 링크가 있는 자료는 해당 제공 사이트에서 확인할 수 있습니다.</p>
       <p class="note" id="ownerNote" hidden>이 안내와 ‘+ 새 글’·수정·삭제 버튼은 주인에게만 보입니다. 방문자는 글만 읽을 수 있습니다.</p>
     </main>
 
@@ -1224,7 +1225,7 @@
     shown.forEach(p => {
       const li = document.createElement("li"); li.className = "post";
       const files = (p.files || []).map(f => {
-        if (!f.url) return `<span>${esc(f.name)}</span>`;
+        if (!f.url) return `<span title="원본 파일 연결 준비 중">${esc(f.name)} (준비 중)</span>`;
         if (f.url.startsWith("/_blob/")) return `<button type="button" class="view" data-url="${esc(f.url)}" data-name="${esc(f.name || "")}">${esc(f.name || "첨부")} 보기</button>`;
         if (!/^https?:\/\//i.test(f.url)) return `<span>${esc(f.name || "링크")}</span>`;
         return `<a href="${esc(f.url)}" target="_blank" rel="noopener noreferrer">${esc(f.name || f.url)} ↗</a>`;
