@@ -1,0 +1,578 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>현장응급의료소장 지휘 매뉴얼</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: 휴대전화 한 손 스크롤용 단일 컬럼 · 상단 고정 목차칩 · 지휘 멘트는 '무전 카드'로 구분 */
+:root{
+  --bg:#f3f5f6; --paper:#ffffff; --ink:#16212b; --muted:#56636f; --line:#d5dce2;
+  --cmd:#0f4c81; --cmd-soft:#e3edf7; --script-bg:#16212b; --script-fg:#f3f5f6;
+  --red:#c62828; --yellow:#e0a100; --green:#2e7d32; --black:#1b1b1b; --warn-bg:#fff4e0; --warn-ink:#7a4b00;
+  --display:"Black Han Sans","IBM Plex Sans KR",system-ui,sans-serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --fs:19px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f161c; --paper:#17212a; --ink:#e8edf1; --muted:#9aa8b4; --line:#2b3945;
+  --cmd:#7fb6e8; --cmd-soft:#1b2d3e; --script-bg:#e8edf1; --script-fg:#0f161c;
+  --red:#ef5350; --yellow:#f2c230; --green:#66bb6a; --black:#cfd6dc; --warn-bg:#33270f; --warn-ink:#f2c879; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f161c; --paper:#17212a; --ink:#e8edf1; --muted:#9aa8b4; --line:#2b3945;
+  --cmd:#7fb6e8; --cmd-soft:#1b2d3e; --script-bg:#e8edf1; --script-fg:#0f161c;
+  --red:#ef5350; --yellow:#f2c230; --green:#66bb6a; --black:#cfd6dc; --warn-bg:#33270f; --warn-ink:#f2c879; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{font-size:var(--fs);-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.65;word-break:keep-all;overflow-wrap:anywhere}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 3rem}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar-in{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:.45rem;display:flex;align-items:center;gap:.5rem}
+.bar-title{font-family:var(--display);font-size:.95rem;color:var(--cmd);white-space:nowrap}
+.chips{display:flex;gap:.35rem;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;font-size:.72rem;font-weight:700;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:.2rem .6rem;background:var(--bg)}
+.chips a:focus-visible,.fsbtn:focus-visible,button:focus-visible{outline:3px solid var(--cmd);outline-offset:2px}
+.fs{display:flex;gap:.25rem;flex:none}
+.fsbtn{font-family:var(--body);font-weight:700;font-size:.78rem;min-width:2.3rem;height:2.1rem;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+
+/* cover */
+.cover{padding-block:1.6rem 1.2rem}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.cover h1{font-family:var(--display);font-weight:400;font-size:2.15rem;line-height:1.2;margin:.4rem 0 .5rem;text-wrap:balance}
+.cover h1 span{color:var(--cmd)}
+.cover .sub{color:var(--muted);font-size:.9rem;margin:0}
+.triage{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:1rem 0}
+.triage i{flex:1}
+.principles{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;margin-top:1rem}
+.principles h2{font-size:.95rem;margin:0 0 .5rem;color:var(--cmd)}
+.principles ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+.meta{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-top:.8rem}
+
+/* sections */
+section{padding-top:2.2rem;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 3.4rem)}
+.sh{display:flex;align-items:baseline;gap:.6rem;border-bottom:3px solid var(--ink);padding-bottom:.35rem;margin-bottom:1rem}
+.sh .no{font-family:var(--mono);font-weight:600;font-size:.85rem;color:var(--paper);background:var(--cmd);border-radius:6px;padding:.05rem .45rem;flex:none}
+.sh h2{font-family:var(--display);font-weight:400;font-size:1.45rem;line-height:1.25;margin:0;text-wrap:balance}
+h3{font-size:1.05rem;margin:1.4rem 0 .5rem}
+
+/* flow */
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.flow li{display:grid;grid-template-columns:2.6rem 1fr;gap:.7rem;position:relative;padding-bottom:.85rem}
+.flow li::before{content:"";position:absolute;left:1.3rem;top:2.4rem;bottom:0;width:2px;background:var(--line)}
+.flow li:last-child::before{display:none}
+.flow .n{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--paper);border:2px solid var(--cmd);color:var(--cmd);font-family:var(--mono);font-weight:600;display:grid;place-items:center;font-size:.85rem}
+.flow b{display:block;font-size:1.05rem}
+.flow span{color:var(--muted);font-size:.88rem}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
+.check label{display:flex;gap:.7rem;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;cursor:pointer;min-height:3rem}
+.check input{appearance:none;-webkit-appearance:none;flex:none;width:1.45rem;height:1.45rem;border:2px solid var(--muted);border-radius:6px;margin-top:.12rem;display:grid;place-items:center;background:var(--paper)}
+.check input:checked{background:var(--green);border-color:var(--green)}
+.check input:checked::after{content:"";width:.4rem;height:.75rem;border:solid var(--paper);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.check input:checked + span{color:var(--muted);text-decoration:line-through}
+.check strong{color:var(--cmd)}
+
+/* command script card */
+.script{background:var(--script-bg);color:var(--script-fg);border-radius:12px;padding:.85rem 1rem 1rem;margin:.8rem 0}
+.script-h{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-bottom:.35rem}
+.script-h small{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;opacity:.75}
+.copy{font-family:var(--body);font-size:.72rem;font-weight:700;border:1px solid currentColor;background:transparent;color:inherit;border-radius:6px;padding:.15rem .55rem;cursor:pointer;opacity:.85}
+.script p{margin:0;font-size:1.04rem;line-height:1.7}
+
+.warn{background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:.8rem 1rem;margin:.8rem 0;font-size:.95rem}
+.warn b{display:block;margin-bottom:.15rem}
+
+/* CSCAPTT */
+.step{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem;margin-bottom:.9rem}
+.step-h{display:flex;align-items:center;gap:.75rem;margin-bottom:.7rem}
+.letter{font-family:var(--display);font-size:1.6rem;width:2.8rem;height:2.8rem;border-radius:10px;background:var(--cmd);color:var(--paper);display:grid;place-items:center;flex:none}
+.step-h h3{margin:0;font-size:1.15rem}
+.step-h h3 small{display:block;font-family:var(--mono);font-weight:500;font-size:.7rem;color:var(--muted);letter-spacing:.06em}
+.step .script{margin-bottom:0}
+
+/* teams */
+.teams{display:grid;gap:.5rem}
+.team{display:grid;grid-template-columns:7.2rem 1fr;gap:.6rem;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.65rem .8rem}
+.team b{color:var(--cmd)}
+
+.ordered{margin:0;padding-left:1.4rem;display:grid;gap:.35rem}
+.ordered li::marker{font-weight:700;color:var(--cmd)}
+
+/* decisions */
+.dec{display:grid;gap:.5rem}
+.dec div{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:8px;padding:.6rem .85rem}
+.dec div:nth-child(3){border-left-color:var(--yellow)}
+.dec div:nth-child(4){border-left-color:var(--cmd)}
+.dec div:nth-child(5){border-left-color:var(--muted)}
+.dec b{display:block}
+.dec span{font-size:.92rem;color:var(--muted)}
+
+/* forms */
+.appx{border-top:3px double var(--line);margin-top:2.6rem;padding-top:.6rem;color:var(--muted);font-size:.9rem}
+.form{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1rem;display:grid;gap:.75rem}
+.f{display:grid;gap:.2rem}
+.f label{font-size:.82rem;font-weight:700;color:var(--muted)}
+.f input,.f textarea{font-family:var(--body);font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:.55rem .65rem;width:100%;min-width:0}
+.f textarea{min-height:4.5rem;resize:vertical}
+.f input:focus,.f textarea:focus{outline:2px solid var(--cmd);outline-offset:1px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.row4{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
+.row4 .f label{font-size:.72rem}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;border-radius:4px;padding:0 .35rem;color:#fff}
+.t-red{background:var(--red)} .t-yel{background:var(--yellow);color:#1b1b1b} .t-grn{background:var(--green)} .t-blk{background:#1b1b1b}
+.note{font-size:.85rem;color:var(--muted);margin:.6rem 0 0}
+.log{display:grid;gap:.5rem}
+.logrow{display:grid;grid-template-columns:5.2rem 1fr 4.6rem;gap:.4rem}
+.logrow input{font-family:var(--body);font-size:.95rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:.5rem;min-width:0}
+.loghead{font-size:.75rem;font-weight:700;color:var(--muted)}
+.tx{border:1px solid var(--line);border-radius:10px;padding:.7rem;display:grid;gap:.45rem;background:var(--bg)}
+.tx .tno{font-family:var(--mono);font-weight:600;color:var(--cmd);font-size:.85rem}
+.forms-tools{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
+.btn{font-family:var(--body);font-size:.85rem;font-weight:700;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:.45rem .8rem;cursor:pointer}
+
+/* briefing */
+.brief{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.1rem 1.2rem}
+.brief h4{font-size:.95rem;color:var(--cmd);margin:1.1rem 0 .3rem}
+.brief p{margin:.3rem 0;font-size:1.06rem;line-height:1.85}
+.brief .ph{background:var(--cmd-soft);color:var(--cmd);border-radius:4px;padding:0 .2rem;font-weight:700}
+.timer{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+
+.basis{font-size:.88rem;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1rem}
+.basis p{margin:.4rem 0}
+.toTop{display:block;text-align:center;margin-top:2rem;font-size:.85rem;color:var(--cmd)}
+.toast{position:fixed;left:50%;bottom:calc(1rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:.45rem .9rem;border-radius:8px;font-size:.8rem;z-index:20}
+@media (max-width:380px){.team{grid-template-columns:1fr}.row4{grid-template-columns:1fr 1fr}.logrow{grid-template-columns:4.4rem 1fr 3.8rem}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+
+<div class="bar"><div class="bar-in">
+  <span class="bar-title">현장의료소</span>
+  <nav class="chips" aria-label="목차">
+    <a href="#s01">흐름</a><a href="#s02">도착</a><a href="#s03">초기4</a><a href="#s04">운영4</a><a href="#s05">인수</a><a href="#s06">회의</a><a href="#s07">종료</a><a href="#s08">체크</a><a href="#ax-a">인계서</a><a href="#ax-b">상황보고</a><a href="#ax-c">일지</a><a href="#ax-d">이송표</a><a href="#ax-e">종료점검</a><a href="#ax-f">브리핑</a>
+  </nav>
+  <div class="fs" role="group" aria-label="글씨 크기">
+    <button class="fsbtn" id="fsDown" aria-label="글씨 작게">가−</button>
+    <button class="fsbtn" id="fsUp" aria-label="글씨 크게">가+</button>
+  </div>
+</div></div>
+
+<main class="wrap">
+
+<header class="cover" id="top">
+  <div class="eyebrow">Field Guide · 현장응급의료소장</div>
+  <h1>보건소장 재난현장<br><span>응급의료소 실전 지휘</span> 매뉴얼</h1>
+  <p class="sub">지휘 멘트 · 단계별 체크리스트 · 인계인수서 · 상황보고서 · 운영일지 · 언론브리핑</p>
+  <div class="triage" aria-hidden="true"><i style="background:var(--red)"></i><i style="background:var(--yellow)"></i><i style="background:var(--green)"></i><i style="background:#1b1b1b"></i></div>
+  <div class="principles">
+    <h2>현장 사용 핵심 원칙</h2>
+    <ol>
+      <li>안전을 먼저 확인합니다.</li>
+      <li>긴급구조통제단의 <strong>현장 총괄지휘</strong>와 현장응급의료소의 <strong>의료 운영 지휘</strong>를 구분합니다.</li>
+      <li>환자의 개별 처치는 담당 의료진이 수행합니다.</li>
+      <li>보고 수치는 <strong>기준시각</strong>과 <strong>확인/추정</strong>을 구분합니다.</li>
+    </ol>
+  </div>
+  <p class="meta">2026. 10. 28. · 실무 교육 및 훈련용 초안 · 현장 적용 전 최신 지침 확인</p>
+</header>
+
+<section id="s01">
+  <div class="sh"><span class="no">01</span><h2>현장 대응 한눈에 보기</h2></div>
+  <ol class="flow">
+    <li><span class="n">01</span><div><b>도착</b><span>통제단장 보고 · 현재 의료지휘자 확인</span></div></li>
+    <li><span class="n">02</span><div><b>안전</b><span>위험요인 · 보호구 · 안전동선 확인</span></div></li>
+    <li><span class="n">03</span><div><b>통신</b><span>PS-LTE 등 가용 통신 · 예비수단 확인</span></div></li>
+    <li><span class="n">04</span><div><b>평가</b><span>사상자 · 기이송 · 대기 · 자원 파악</span></div></li>
+    <li><span class="n">05</span><div><b>장소</b><span>의료소 · 통제선 · 환자동선 확정</span></div></li>
+    <li><span class="n">06</span><div><b>분류</b><span>분류 · 기록 · 재분류</span></div></li>
+    <li><span class="n">07</span><div><b>처치</b><span>생명구호 중심의 응급처치</span></div></li>
+    <li><span class="n">08</span><div><b>이송</b><span>병원 수용 확인 · 분산 이송</span></div></li>
+    <li><span class="n">09</span><div><b>운영</b><span>지휘권 인수 · 업무 분장 · 상황회의</span></div></li>
+    <li><span class="n">10</span><div><b>종료</b><span>잔여 환자 · 안전 확인 · 종료 협의</span></div></li>
+  </ol>
+</section>
+
+<section id="s02">
+  <div class="sh"><span class="no">02</span><h2>도착 즉시 5대 확인</h2></div>
+  <ul class="check">
+    <li><label><input type="checkbox" id="c02-1"><span>현장지휘소 위치와 긴급구조통제단장 확인</span></label></li>
+    <li><label><input type="checkbox" id="c02-2"><span>위험요인과 통제구역, 의료진 진입 가능 여부</span></label></li>
+    <li><label><input type="checkbox" id="c02-3"><span>임시의료소 운영 중인지와 현 책임자 확인</span></label></li>
+    <li><label><input type="checkbox" id="c02-4"><span>사상자 추정 수, 긴급환자 및 이송 현황</span></label></li>
+    <li><label><input type="checkbox" id="c02-5"><span>신속대응반 인력 · 장비 · 통신 준비상태</span></label></li>
+  </ul>
+  <div class="script"><div class="script-h"><small>지휘 멘트 · 통제단장 도착 보고</small><button class="copy">복사</button></div>
+    <p>긴급구조통제단장님, ○○구 보건소장 ○○○입니다. 신속대응반 ○명과 도착했습니다. 현장 안전과 기존 의료대응 현황을 확인하고 의료소 운영체계를 연계하겠습니다. 현재 의료지휘 책임자 연결을 요청드립니다.</p></div>
+  <div class="warn"><b>확인 없이 시작하지 않을 것</b>의료진 위험노출, 기존 환자 처치 중단, 환자 중복집계, 지휘체계 이원화를 피합니다.</div>
+</section>
+
+<section id="s03">
+  <div class="sh"><span class="no">03</span><h2>CSCAPTT · 초기 4단계</h2></div>
+
+  <div class="step"><div class="step-h"><span class="letter">C</span><h3><small>COMMAND</small>지휘체계</h3></div>
+    <ul class="check">
+      <li><label><input type="checkbox" id="c03-c1"><span>통제단장 도착 보고</span></label></li>
+      <li><label><input type="checkbox" id="c03-c2"><span>의료소장 대행 여부 및 인계 대상 확인</span></label></li>
+    </ul>
+    <div class="script"><div class="script-h"><small>지휘 멘트</small><button class="copy">복사</button></div><p>현재 인력·환자·이송 현황과 미완료 업무를 보고하십시오.</p></div>
+  </div>
+
+  <div class="step"><div class="step-h"><span class="letter">S</span><h3><small>SAFETY</small>안전</h3></div>
+    <ul class="check">
+      <li><label><input type="checkbox" id="c03-s1"><span>붕괴 · 화재 · 유해물질 · 교통 위험 확인</span></label></li>
+      <li><label><input type="checkbox" id="c03-s2"><span>보호구 · 대피 동선 확인</span></label></li>
+    </ul>
+    <div class="script"><div class="script-h"><small>지휘 멘트</small><button class="copy">복사</button></div><p>안전담당과 의료소 운영 구역의 위험요인을 확인하십시오. 안전이 확보되지 않은 구역에서 활동하지 않습니다.</p></div>
+  </div>
+
+  <div class="step"><div class="step-h"><span class="letter">C</span><h3><small>COMMUNICATION</small>통신</h3></div>
+    <ul class="check">
+      <li><label><input type="checkbox" id="c03-m1"><span>공용 연락체계, 호출명, 채널 확인</span></label></li>
+      <li><label><input type="checkbox" id="c03-m2"><span>연락두절 시 예비수단 지정</span></label></li>
+    </ul>
+    <div class="script"><div class="script-h"><small>지휘 멘트</small><button class="copy">복사</button></div><p>각 반은 통신 상태를 확인하고, 장애 시 사용할 예비 연락수단을 보고하십시오.</p></div>
+  </div>
+
+  <div class="step"><div class="step-h"><span class="letter">A</span><h3><small>ASSESSMENT</small>의료수요</h3></div>
+    <ul class="check">
+      <li><label><input type="checkbox" id="c03-a1"><span>환자 수 · 중증도 · 구조 및 기이송 현황</span></label></li>
+      <li><label><input type="checkbox" id="c03-a2"><span>의료진 · 차량 · 병상 · 물품 부족 파악</span></label></li>
+    </ul>
+    <div class="script"><div class="script-h"><small>지휘 멘트</small><button class="copy">복사</button></div><p>사상자 현황은 확인치와 추정치를 구분하여 집계하고 부족한 자원을 보고하십시오.</p></div>
+  </div>
+</section>
+
+<section id="s04">
+  <div class="sh"><span class="no">04</span><h2>CSCAPTT · 운영 4단계</h2></div>
+
+  <div class="step"><div class="step-h"><span class="letter">P</span><h3><small>PLACE</small>장소</h3></div>
+    <ul class="check">
+      <li><label><input type="checkbox" id="c04-p1"><span>통제단과 설치 장소 협의</span></label></li>
+      <li><label><input type="checkbox" id="c04-p2"><span>분류 · 처치 · 이송대기 구역 및 동선 분리</span></label></li>
+    </ul>
+    <div class="script"><div class="script-h"><small>지휘 멘트</small><button class="copy">복사</button></div><p>안전한 장소에 의료소를 설치하고 구급차 동선과 통제선을 확보하십시오.</p></div>
+  </div>
+
+  <div class="step"><div class="step-h"><span class="letter">T</span><h3><small>TRIAGE</small>분류</h3></div>
+    <ul class="check">
+      <li><label><input type="checkbox" id="c04-t1"><span>훈련된 담당자 지정, 분류표 부착</span></label></li>
+      <li><label><input type="checkbox" id="c04-t2"><span>상태 변화 시 재분류 · 기록</span></label></li>
+    </ul>
+    <div class="script"><div class="script-h"><small>지휘 멘트</small><button class="copy">복사</button></div><p>분류반은 중증도별 환자 수와 상태 변화를 즉시 공유하십시오.</p></div>
+  </div>
+
+  <div class="step"><div class="step-h"><span class="letter">T</span><h3><small>TREATMENT</small>처치</h3></div>
+    <ul class="check">
+      <li><label><input type="checkbox" id="c04-r1"><span>의료진의 생명구호 처치 우선</span></label></li>
+      <li><label><input type="checkbox" id="c04-r2"><span>환자 상태 · 처치 · 인계사항 기록</span></label></li>
+    </ul>
+    <div class="script"><div class="script-h"><small>지휘 멘트</small><button class="copy">복사</button></div><p>처치반은 긴급환자 처치를 우선하며 이송에 필요한 정보를 기록하십시오.</p></div>
+  </div>
+
+  <div class="step"><div class="step-h"><span class="letter">T</span><h3><small>TRANSPORT</small>이송</h3></div>
+    <ul class="check">
+      <li><label><input type="checkbox" id="c04-x1"><span>병원 수용 및 차량 가용성 확인</span></label></li>
+      <li><label><input type="checkbox" id="c04-x2"><span>이송 출발 · 도착 · 인계 완료 기록</span></label></li>
+    </ul>
+    <div class="script"><div class="script-h"><small>지휘 멘트</small><button class="copy">복사</button></div><p>이송반은 수용 병원을 확인하고 환자별 차량과 인계 결과를 기록하십시오.</p></div>
+  </div>
+</section>
+
+<section id="s05">
+  <div class="sh"><span class="no">05</span><h2>지휘권 인수 및 선언</h2></div>
+  <ul class="check">
+    <li><label><input type="checkbox" id="c05-1"><span>기존 의료책임자에게 안전 · 환자 · 의료소 현황 인수</span></label></li>
+    <li><label><input type="checkbox" id="c05-2"><span>인계인수서에 양측 성명 · 시각 · 현안 기록</span></label></li>
+    <li><label><input type="checkbox" id="c05-3"><span>긴급구조통제단에 의료소 운영 인수 보고</span></label></li>
+    <li><label><input type="checkbox" id="c05-4"><span>각 반에 책임자와 보고 주기 통지</span></label></li>
+  </ul>
+  <div class="script"><div class="script-h"><small>지휘 멘트 · 지휘권 인수 선언</small><button class="copy">복사</button></div>
+    <p>구급인계인수서와 현장 상황을 확인했습니다. ○시 ○분부터 제가 현장응급의료소장의 임무를 인수하겠습니다. 진행 중인 환자 처치는 지속해 주십시오. 각 반장은 현재 현황과 긴급 현안을 보고하십시오.</p></div>
+  <h3>반별 임무 부여</h3>
+  <div class="teams">
+    <div class="team"><b>운영지원반</b><span>통신 · 기록 · 보급 · 인력 · 안전</span></div>
+    <div class="team"><b>분류반</b><span>분류표 · 재분류 · 중증도 집계</span></div>
+    <div class="team"><b>응급처치반</b><span>처치 · 관찰 · 이송 필요 판단</span></div>
+    <div class="team"><b>이송반</b><span>수용병원 · 구급차 · 인계 추적</span></div>
+  </div>
+  <div class="script"><div class="script-h"><small>지휘 멘트 · 임무 부여</small><button class="copy">복사</button></div>
+    <p>각 반장은 소관 업무를 수행하고, 긴급 환자 변화와 안전위험은 즉시 보고하십시오.</p></div>
+</section>
+
+<section id="s06">
+  <div class="sh"><span class="no">06</span><h2>상황판단회의와 돌발상황</h2></div>
+  <h3>상황회의 기본 보고 순서</h3>
+  <ol class="ordered">
+    <li><b>분류반</b> · <span class="tag t-red">긴급</span> <span class="tag t-yel">응급</span> <span class="tag t-grn">비응급</span> <span class="tag t-blk">사망</span> 현황</li>
+    <li><b>처치반</b> · 상태 변화 · 처치 병목</li>
+    <li><b>이송반</b> · 완료 · 대기 · 병원 수용현황</li>
+    <li><b>운영지원반</b> · 안전 · 인력 · 물품 · 통신</li>
+  </ol>
+  <div class="script"><div class="script-h"><small>지휘 멘트 · 상황회의 개시</small><button class="copy">복사</button></div>
+    <p>○시 ○분 기준 사상자 수와 이송 현황을 보고받겠습니다. 각 반장은 확인된 숫자와 추정치를 구분하고, 추가 지원이 필요한 사항을 우선 보고하십시오.</p></div>
+  <h3>돌발상황 의사결정</h3>
+  <div class="dec">
+    <div><b>추가 사상자</b><span>위험 확인 → 의료수요 재평가 → 증원 요청</span></div>
+    <div><b>2차 사고 위험</b><span>의료진 활동 중지 · 대피 → 통제단과 재평가</span></div>
+    <div><b>병상 · 차량 부족</b><span>수용가능 병원 · 이송자원 재확인 및 조정</span></div>
+    <div><b>통신 장애</b><span>예비 무전 · 연락체계 전환</span></div>
+    <div><b>언론 취재</b><span>현장지휘소의 공식 창구로 일원화</span></div>
+  </div>
+</section>
+
+<section id="s07">
+  <div class="sh"><span class="no">07</span><h2>활동 종료와 복귀</h2></div>
+  <ul class="check">
+    <li><label><input type="checkbox" id="c07-1"><span>추가 사상자 발생 가능성 및 잔여 구조활동 확인</span></label></li>
+    <li><label><input type="checkbox" id="c07-2"><span>미분류 · 미이송 · 미인계 환자 <strong>0명</strong>인지 확인</span></label></li>
+    <li><label><input type="checkbox" id="c07-3"><span>긴급구조통제단과 종료 시점 협의</span></label></li>
+    <li><label><input type="checkbox" id="c07-4"><span>중앙 · 지역 관계 상황실과 지원 인력에 통보</span></label></li>
+    <li><label><input type="checkbox" id="c07-5"><span>환자기록 · 이송표 · 활동일지 취합</span></label></li>
+    <li><label><input type="checkbox" id="c07-6"><span>인력 복귀 · 장비 회수 · 오염 및 부족물품 확인</span></label></li>
+  </ul>
+  <div class="script"><div class="script-h"><small>지휘 멘트 · 종료 지시</small><button class="copy">복사</button></div>
+    <p>각 반장은 미이송 환자와 추가 의료지원 필요 여부를 최종 보고하십시오. 긴급구조통제단과 협의해 운영 종료를 결정하겠습니다. 환자와 기록 인계, 장비 및 인원 점검을 마친 뒤 복귀하십시오.</p></div>
+  <div class="script"><div class="script-h"><small>지휘 멘트 · 최종 브리핑</small><button class="copy">복사</button></div>
+    <p>○시 ○분 현재 총 사상자 ○명, 이송 완료 ○명, 미이송 ○명입니다. 남은 환자의 인계 상태를 확인했고 관계기관과 협의하여 ○시 ○분 의료소 운영을 종료하겠습니다.</p></div>
+</section>
+
+<section id="s08">
+  <div class="sh"><span class="no">08</span><h2>현장 휴대용 체크리스트</h2></div>
+  <ul class="check">
+    <li><label><input type="checkbox" id="c08-1"><span><strong>지휘</strong> · 통제단 보고 · 의료책임자 확인 · 인수시각</span></label></li>
+    <li><label><input type="checkbox" id="c08-2"><span><strong>안전</strong> · 위험 · 보호구 · 진입 및 퇴로</span></label></li>
+    <li><label><input type="checkbox" id="c08-3"><span><strong>통신</strong> · 공통망 · 예비수단</span></label></li>
+    <li><label><input type="checkbox" id="c08-4"><span><strong>수요</strong> · 총수 · 중증도 · 기이송 · 대기</span></label></li>
+    <li><label><input type="checkbox" id="c08-5"><span><strong>장소</strong> · 안전 구역 · 환자 동선 · 구급차 동선</span></label></li>
+    <li><label><input type="checkbox" id="c08-6"><span><strong>분류</strong> · 분류표 · 재분류 · 기록</span></label></li>
+    <li><label><input type="checkbox" id="c08-7"><span><strong>처치</strong> · 긴급 우선 · 처치내역 · 인계</span></label></li>
+    <li><label><input type="checkbox" id="c08-8"><span><strong>이송</strong> · 수용병원 · 차량 · 시각 · 인계 완료</span></label></li>
+    <li><label><input type="checkbox" id="c08-9"><span><strong>운영</strong> · 반장 지정 · 물품 · 일지 · 상황회의</span></label></li>
+    <li><label><input type="checkbox" id="c08-10"><span><strong>종료</strong> · 추가 위험 · 잔여 환자 · 복귀 인원</span></label></li>
+  </ul>
+  <div class="forms-tools"><button class="btn" id="resetChecks">체크 표시 모두 지우기</button></div>
+  <p class="appx">부록부터는 실제 작성용 서식입니다. 칸을 눌러 휴대전화에서 바로 기입할 수 있으며, 입력 내용은 이 기기 브라우저에만 임시 보관됩니다.</p>
+</section>
+
+<section id="ax-a">
+  <div class="sh"><span class="no">부록 A</span><h2>구급 인계인수서</h2></div>
+  <div class="form">
+    <div class="f"><label for="a-name">사고명</label><input id="a-name"></div>
+    <div class="row2"><div class="f"><label for="a-date">발생일시</label><input id="a-date"></div><div class="f"><label for="a-time">인계시각</label><input id="a-time" placeholder="00:00"></div></div>
+    <div class="f"><label for="a-place">사고장소</label><input id="a-place"></div>
+    <div class="row2"><div class="f"><label for="a-from">인계자</label><input id="a-from"></div><div class="f"><label for="a-to">인수자</label><input id="a-to"></div></div>
+    <div class="row2"><div class="f"><label for="a-total">총 환자</label><input id="a-total" inputmode="numeric"></div><div class="f"><label for="a-conf">확인 / 추정</label><input id="a-conf"></div></div>
+    <div class="row4">
+      <div class="f"><label for="a-r"><span class="tag t-red">긴급</span></label><input id="a-r" inputmode="numeric"></div>
+      <div class="f"><label for="a-y"><span class="tag t-yel">응급</span></label><input id="a-y" inputmode="numeric"></div>
+      <div class="f"><label for="a-g"><span class="tag t-grn">비응급</span></label><input id="a-g" inputmode="numeric"></div>
+      <div class="f"><label for="a-k"><span class="tag t-blk">사망</span></label><input id="a-k" inputmode="numeric"></div>
+    </div>
+    <div class="row2"><div class="f"><label for="a-tx">기이송</label><input id="a-tx" inputmode="numeric"></div><div class="f"><label for="a-ntx">미이송</label><input id="a-ntx" inputmode="numeric"></div></div>
+    <div class="f"><label for="a-loc">의료소 위치 · 안전 위험</label><textarea id="a-loc"></textarea></div>
+    <div class="f"><label for="a-staff">운영 인력 · 반별 책임자</label><textarea id="a-staff"></textarea></div>
+    <div class="f"><label for="a-need">부족 물품 · 추가지원</label><textarea id="a-need"></textarea></div>
+    <div class="f"><label for="a-open">미완료 현안</label><textarea id="a-open"></textarea></div>
+    <div class="row2"><div class="f"><label for="a-s1">인계자 서명</label><input id="a-s1"></div><div class="f"><label for="a-s2">인수자 서명</label><input id="a-s2"></div></div>
+  </div>
+</section>
+
+<section id="ax-b">
+  <div class="sh"><span class="no">부록 B</span><h2>상황보고서</h2></div>
+  <div class="form">
+    <div class="row2"><div class="f"><label for="b-name">사고명</label><input id="b-name"></div><div class="f"><label for="b-time">기준시각</label><input id="b-time" placeholder="00:00"></div></div>
+    <div class="row2"><div class="f"><label for="b-tc">총 사상자 · 확인</label><input id="b-tc" inputmode="numeric"></div><div class="f"><label for="b-te">총 사상자 · 추정</label><input id="b-te" inputmode="numeric"></div></div>
+    <div class="row4">
+      <div class="f"><label for="b-r"><span class="tag t-red">긴급</span></label><input id="b-r" inputmode="numeric"></div>
+      <div class="f"><label for="b-y"><span class="tag t-yel">응급</span></label><input id="b-y" inputmode="numeric"></div>
+      <div class="f"><label for="b-g"><span class="tag t-grn">비응급</span></label><input id="b-g" inputmode="numeric"></div>
+      <div class="f"><label for="b-k"><span class="tag t-blk">사망</span></label><input id="b-k" inputmode="numeric"></div>
+    </div>
+    <div class="row2"><div class="f"><label for="b-un">미분류</label><input id="b-un" inputmode="numeric"></div><div class="f"><label for="b-done">이송완료</label><input id="b-done" inputmode="numeric"></div></div>
+    <div class="row2"><div class="f"><label for="b-wait">이송대기</label><input id="b-wait" inputmode="numeric"></div><div class="f"><label for="b-staff">의료인력 / 차량</label><input id="b-staff"></div></div>
+    <div class="f"><label for="b-lack">부족 자원</label><textarea id="b-lack"></textarea></div>
+    <div class="f"><label for="b-risk">추가 위험 · 요청사항</label><textarea id="b-risk"></textarea></div>
+    <div class="row2"><div class="f"><label for="b-by">보고자</label><input id="b-by"></div><div class="f"><label for="b-recv">수신자</label><input id="b-recv"></div></div>
+    <div class="f"><label for="b-at">보고시각</label><input id="b-at" placeholder="00:00"></div>
+  </div>
+</section>
+
+<section id="ax-c">
+  <div class="sh"><span class="no">부록 C</span><h2>운영일지</h2></div>
+  <div class="form">
+    <div class="f"><label for="c-name">사고명</label><input id="c-name"></div>
+    <div class="log" id="logRows">
+      <div class="logrow loghead"><span>시각</span><span>주요 상황 · 지시 · 조치</span><span>기록자</span></div>
+    </div>
+    <div class="forms-tools"><button class="btn" id="addLog">+ 기록 줄 추가</button></div>
+    <p class="note">※ 환자 수 변화는 기준시각을 명시하고, 구두 지시 및 이송 관련 결정도 기록합니다.</p>
+  </div>
+</section>
+
+<section id="ax-d">
+  <div class="sh"><span class="no">부록 D</span><h2>환자 이송 현황표</h2></div>
+  <div class="form">
+    <div class="log" id="txRows"></div>
+    <div class="forms-tools"><button class="btn" id="addTx">+ 환자 추가</button></div>
+    <p class="note">※ 실제 환자 식별정보는 기관의 개인정보보호 및 재난의료 기록지침에 따라 별도 관리합니다. 이송 확정과 병원 인계 완료를 구분합니다.</p>
+  </div>
+</section>
+
+<section id="ax-e">
+  <div class="sh"><span class="no">부록 E</span><h2>활동 종료 점검표</h2></div>
+  <ul class="check">
+    <li><label><input type="checkbox" id="e-1"><span>추가 사상자 발생 가능성 재확인</span></label></li>
+    <li><label><input type="checkbox" id="e-2"><span>미이송 환자 · 환자 인계 누락 확인</span></label></li>
+    <li><label><input type="checkbox" id="e-3"><span>통제단과 의료지원 종료 협의</span></label></li>
+    <li><label><input type="checkbox" id="e-4"><span>각 반별 환자 및 활동기록 취합</span></label></li>
+    <li><label><input type="checkbox" id="e-5"><span>장비 · 의약품 · 소모품 재고 점검</span></label></li>
+    <li><label><input type="checkbox" id="e-6"><span>오염 장비의 별도 회수 · 소독 계획</span></label></li>
+    <li><label><input type="checkbox" id="e-7"><span>참여 인력 · 복귀 인원 최종 확인</span></label></li>
+    <li><label><input type="checkbox" id="e-8"><span>활동보고서 작성 책임 · 제출기한 지정</span></label></li>
+  </ul>
+  <div class="form" style="margin-top:.8rem">
+    <div class="row2"><div class="f"><label for="e-t1">종료 협의시각</label><input id="e-t1" placeholder="00:00"></div><div class="f"><label for="e-t2">의료소 운영 종료</label><input id="e-t2" placeholder="00:00"></div></div>
+    <div class="f"><label for="e-who">담당 확인자</label><input id="e-who"></div>
+  </div>
+</section>
+
+<section id="ax-f">
+  <div class="sh"><span class="no">부록 F</span><h2>최종 언론브리핑 예시</h2></div>
+  <p class="timer">보건소장 발표용 · 약 2분 · 현장응급의료지원 종료 후</p>
+  <div class="warn"><b>발표 전 유의사항</b>이 문안은 승인된 사실만 대입하는 교육·훈련용 예시입니다. 언론브리핑은 현장지휘소 및 재난대책본부와 사전 협의한 공식 발표 체계에 따라 진행합니다.</div>
+  <div class="brief" id="briefText">
+    <p>안녕하십니까. <span class="ph">○○구</span> 보건소장 <span class="ph">○○○</span>입니다.</p>
+    <p>금일 발생한 <span class="ph">○○사고</span>와 관련하여 현장응급의료소 운영 결과를 말씀드리겠습니다.</p>
+    <h4>첫째, 사고 발생 및 의료대응 현황입니다.</h4>
+    <p>오늘 <span class="ph">○○시 ○○분</span>경 <span class="ph">○○지역</span>에서 발생한 사고에 대응하여 보건소 신속대응반과 소방 구급대, 재난의료지원팀(DMAT) 등 관계기관이 협력하여 현장응급의료활동을 실시하였습니다. 현장에서는 사상자 중증도 분류, 응급처치 및 의료기관 이송을 중심으로 대응하였습니다.</p>
+    <h4>둘째, 최종 사상자 및 이송 현황입니다.</h4>
+    <p><span class="ph">○○시 ○○분</span> 현재 확인된 사상자는 총 <span class="ph">○○명</span>입니다. 이 중 사망 <span class="ph">○○명</span>, 긴급환자 <span class="ph">○○명</span>, 응급환자 <span class="ph">○○명</span>, 비응급환자 <span class="ph">○○명</span>입니다.</p>
+    <p>의료기관으로 이송된 환자는 총 <span class="ph">○○명</span>으로, 환자의 중증도와 의료기관별 수용 가능 여부를 고려하여 <span class="ph">○개</span> 의료기관으로 분산 이송하였습니다. 미이송 환자는 <span class="ph">○○명</span>이며, 현장에서 필요한 확인 및 조치를 진행하였습니다.</p>
+    <h4>셋째, 현장응급의료소 운영 결과입니다.</h4>
+    <p>현장응급의료소는 <span class="ph">○○시 ○○분</span>부터 <span class="ph">○○시 ○○분</span>까지 운영하였습니다. 운영에는 보건소 신속대응반 <span class="ph">○○명</span>, 재난의료지원팀 <span class="ph">○○명</span> 등 총 <span class="ph">○○명</span>의 의료지원 인력이 참여하였습니다.</p>
+    <p>현장에서 중증도 분류와 응급처치, 의료기관 이송 조정 등을 수행하였으며 관계기관 간 협조체계를 유지하였습니다.</p>
+    <h4>넷째, 현장 의료지원 종료 및 향후 조치입니다.</h4>
+    <p>현재까지 확인된 사상자에 대한 현장 의료조치와 이송이 마무리되었으며, 추가 의료지원 필요 여부를 확인한 후 관계기관과 협의하여 <span class="ph">○○시 ○○분</span>부로 현장응급의료소 운영을 종료하였습니다.</p>
+    <p>향후 이송환자의 진료 현황은 관계기관과 협력하여 확인하고, 현장 의료대응 과정에 대한 기록과 평가를 실시하겠습니다.</p>
+    <p>마지막으로 사고 피해자와 가족 여러분께 깊은 위로의 말씀을 드립니다.</p>
+    <p>이상으로 현장응급의료지원 결과에 대한 브리핑을 마치겠습니다. 감사합니다.</p>
+  </div>
+  <div class="forms-tools"><button class="btn" id="copyBrief">발표문 전체 복사</button></div>
+
+  <h3>브리핑 직전 최종 점검표</h3>
+  <ul class="check">
+    <li><label><input type="checkbox" id="f-1"><span>사상자 총수와 중증도별 합계가 일치하는가?</span></label></li>
+    <li><label><input type="checkbox" id="f-2"><span>이송 · 미이송 인원과 중복집계 여부를 확인했는가?</span></label></li>
+    <li><label><input type="checkbox" id="f-3"><span>사망 등 민감한 수치는 공식 확인된 정보인가?</span></label></li>
+    <li><label><input type="checkbox" id="f-4"><span>사상자 집계 기준시각을 적었는가?</span></label></li>
+    <li><label><input type="checkbox" id="f-5"><span>의료소 운영시각 · 참여인원 · 이송기관 수를 검증했는가?</span></label></li>
+    <li><label><input type="checkbox" id="f-6"><span>운영 종료가 관계기관과 협의되었는가?</span></label></li>
+    <li><label><input type="checkbox" id="f-7"><span>언론 대응 담당부서와 발표 내용이 일치하는가?</span></label></li>
+    <li><label><input type="checkbox" id="f-8"><span>개인 식별정보와 미확인 사고 원인을 제외했는가?</span></label></li>
+  </ul>
+
+  <h3>현장 발표용 집계 기입란</h3>
+  <div class="form">
+    <div class="f"><label for="f-name">사고명 / 발생 장소</label><input id="f-name"></div>
+    <div class="f"><label for="f-base">집계 기준시각</label><input id="f-base" placeholder="2026-00-00 00:00"></div>
+    <div class="f"><label for="f-total">사상자 총수 (명)</label><input id="f-total" inputmode="numeric"></div>
+    <div class="row4">
+      <div class="f"><label for="f-k"><span class="tag t-blk">사망</span></label><input id="f-k" inputmode="numeric"></div>
+      <div class="f"><label for="f-r"><span class="tag t-red">긴급</span></label><input id="f-r" inputmode="numeric"></div>
+      <div class="f"><label for="f-y"><span class="tag t-yel">응급</span></label><input id="f-y" inputmode="numeric"></div>
+      <div class="f"><label for="f-g"><span class="tag t-grn">비응급</span></label><input id="f-g" inputmode="numeric"></div>
+    </div>
+    <p class="note" id="sumCheck" aria-live="polite">중증도별 인원을 입력하면 총수와의 합계 일치 여부를 표시합니다.</p>
+    <div class="row2"><div class="f"><label for="f-tx">이송 (명)</label><input id="f-tx" inputmode="numeric"></div><div class="f"><label for="f-ntx">미이송 (명)</label><input id="f-ntx" inputmode="numeric"></div></div>
+    <div class="row2"><div class="f"><label for="f-hosp">분산 이송 의료기관 (개소)</label><input id="f-hosp" inputmode="numeric"></div><div class="f"><label for="f-staff">지원 의료인력 (명)</label><input id="f-staff" inputmode="numeric"></div></div>
+    <div class="f"><label for="f-op">의료소 운영시각</label><input id="f-op" placeholder="00:00 ~ 00:00"></div>
+  </div>
+  <div class="forms-tools"><button class="btn" id="resetForms">입력 내용 모두 지우기</button></div>
+</section>
+
+<section id="basis">
+  <div class="sh"><span class="no">근거</span><h2>적용 근거 및 주의사항</h2></div>
+  <div class="basis">
+    <p><b>자료 기반</b> · 제공된 재난응급의료 교육자료(현장응급의료소장 예시 멘트, 인계인수서, 운영일지, CSCAPTT 8단계 및 종료·복귀 자료).</p>
+    <p><b>참고 법령</b> · 「긴급구조대응활동 및 현장지휘에 관한 규칙」. 실제 현장에서는 최신 법령 · 관할 긴급구조대응계획 · 재난응급의료 비상대응매뉴얼을 우선 적용합니다.</p>
+    <p>본 문서는 교육·훈련용 보조 매뉴얼입니다. 분류 알고리즘, 의료적 처치, 보고 경로·제출기한은 적용되는 최신 기관 지침에 따라 확인하십시오. 부록 양식은 공식 서식 원본을 그대로 복제한 것이 아닌 현장용 재구성 서식입니다.</p>
+  </div>
+  <a class="toTop" href="#top">맨 위로 ↑</a>
+</section>
+
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  var KEY='erfg-v1';
+  var store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){store={};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+  // font size
+  var sizes=[16,17,19,21,23,26], idx=sizes.indexOf(store.fs||19); if(idx<0) idx=2;
+  function applyFs(){document.documentElement.style.setProperty('--fs',sizes[idx]+'px');store.fs=sizes[idx];save();}
+  applyFs();
+  document.getElementById('fsUp').onclick=function(){if(idx<sizes.length-1){idx++;applyFs();toast('글씨 '+sizes[idx]+'px');}};
+  document.getElementById('fsDown').onclick=function(){if(idx>0){idx--;applyFs();toast('글씨 '+sizes[idx]+'px');}};
+
+  // dynamic rows
+  var logWrap=document.getElementById('logRows'), txWrap=document.getElementById('txRows');
+  var logN=store.logN||8, txN=store.txN||6;
+  function addLog(i){var r=document.createElement('div');r.className='logrow';
+    r.innerHTML='<input id="log-t'+i+'" placeholder="00:00" aria-label="시각 '+i+'"><input id="log-m'+i+'" aria-label="주요 상황 '+i+'"><input id="log-w'+i+'" aria-label="기록자 '+i+'">';logWrap.appendChild(r);}
+  function addTx(i){var n=String(i).padStart(2,'0');var r=document.createElement('div');r.className='tx';
+    r.innerHTML='<span class="tno">'+n+'</span><div class="row2"><div class="f"><label for="tx-c'+i+'">중증도/분류</label><input id="tx-c'+i+'"></div><div class="f"><label for="tx-id'+i+'">ID</label><input id="tx-id'+i+'"></div></div><div class="row2"><div class="f"><label for="tx-h'+i+'">이송병원</label><input id="tx-h'+i+'"></div><div class="f"><label for="tx-v'+i+'">차량 / 출발·인계</label><input id="tx-v'+i+'"></div></div>';txWrap.appendChild(r);}
+  for(var i=1;i<=logN;i++)addLog(i);
+  for(var j=1;j<=txN;j++)addTx(j);
+  document.getElementById('addLog').onclick=function(){logN++;addLog(logN);store.logN=logN;save();};
+  document.getElementById('addTx').onclick=function(){txN++;addTx(txN);store.txN=txN;save();};
+
+  // restore + persist inputs
+  store.v=store.v||{};
+  function bind(el){
+    if(!el.id) return;
+    if(el.type==='checkbox'){ if(store.v[el.id]) el.checked=true; }
+    else if(store.v[el.id]!=null) el.value=store.v[el.id];
+  }
+  document.querySelectorAll('input,textarea').forEach(bind);
+  document.addEventListener('input',function(e){var el=e.target;if(!el.id)return;
+    store.v[el.id]=el.type==='checkbox'?el.checked:el.value;save();sumCheck();});
+  document.addEventListener('change',function(e){var el=e.target;if(el.type==='checkbox'&&el.id){store.v[el.id]=el.checked;save();}});
+
+  document.getElementById('resetChecks').onclick=function(){document.querySelectorAll('input[type=checkbox]').forEach(function(c){c.checked=false;delete store.v[c.id];});save();toast('체크 표시를 지웠습니다');};
+  var armed=false;
+  document.getElementById('resetForms').onclick=function(){
+    if(!armed){armed=true;this.textContent='한 번 더 누르면 지웁니다';var b=this;setTimeout(function(){armed=false;b.textContent='입력 내용 모두 지우기';},3000);return;}
+    document.querySelectorAll('input:not([type=checkbox]),textarea').forEach(function(c){c.value='';delete store.v[c.id];});save();armed=false;this.textContent='입력 내용 모두 지우기';sumCheck();toast('입력 내용을 지웠습니다');};
+
+  // sum check
+  function num(id){var v=(document.getElementById(id).value||'').replace(/[^0-9]/g,'');return v===''?null:+v;}
+  function sumCheck(){var el=document.getElementById('sumCheck');var t=num('f-total');var parts=['f-k','f-r','f-y','f-g'].map(num);
+    if(t===null||parts.some(function(p){return p===null;})){el.textContent='중증도별 인원을 입력하면 총수와의 합계 일치 여부를 표시합니다.';el.style.color='';return;}
+    var s=parts.reduce(function(a,b){return a+b;},0);
+    if(s===t){el.textContent='✓ 중증도별 합계 '+s+'명 = 사상자 총수 '+t+'명';el.style.color='var(--green)';}
+    else{el.textContent='✗ 중증도별 합계 '+s+'명 ≠ 사상자 총수 '+t+'명 — 집계를 다시 확인하십시오';el.style.color='var(--red)';}}
+  sumCheck();
+
+  // copy
+  function copyText(txt,node){
+    var done=function(){toast('복사했습니다');};
+    try{navigator.clipboard.writeText(txt).then(done,function(){selectNode(node);});}catch(e){selectNode(node);}
+  }
+  function selectNode(node){try{var r=document.createRange();r.selectNodeContents(node);var s=getSelection();s.removeAllRanges();s.addRange(r);toast('선택했습니다. 길게 눌러 복사하십시오');}catch(e){}}
+  document.querySelectorAll('.script .copy').forEach(function(b){b.onclick=function(){var p=b.closest('.script').querySelector('p');copyText(p.innerText,p);};});
+  document.getElementById('copyBrief').onclick=function(){var n=document.getElementById('briefText');copyText(n.innerText,n);};
+
+  var tt;function toast(m){var t=document.getElementById('toast');t.textContent=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(function(){t.hidden=true;},1600);}
+})();
+</script>
+
+</body></html>
