@@ -1399,4 +1399,44 @@
   // GitHub Pages: 공개 읽기 전용. 관리자 편집은 원본 Claude 환경에서만 지원됩니다.
 </script>
 
+
+<!-- 통합 교육자료실: 분야 선택 및 제목 검색 기능 -->
+<script id="library-filter-fix">
+(function () {
+  'use strict';
+  function initLibraryFilters() {
+    const root = document.getElementById('library-new');
+    if (!root) return;
+    const keyword = root.querySelector('#lib-search');
+    const category = root.querySelector('#lib-category');
+    const count = root.querySelector('#lib-count');
+    const entries = Array.from(root.querySelectorAll('.lib-entry'));
+    if (!keyword || !category || !count) return;
+    const norm = value => String(value || '').normalize('NFC').trim().toLocaleLowerCase('ko-KR');
+    function applyFilters() {
+      const selected = norm(category.value);
+      const searchTerm = norm(keyword.value);
+      let visible = 0;
+      entries.forEach(entry => {
+        const matchCategory = !selected || norm(entry.dataset.cat) === selected;
+        const matchText = !searchTerm || norm(entry.dataset.title || entry.textContent).includes(searchTerm);
+        const show = matchCategory && matchText;
+        entry.hidden = !show;
+        entry.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      count.textContent = visible + '개 자료 표시 / 전체 ' + entries.length + '개';
+      count.setAttribute('aria-live', 'polite');
+    }
+    keyword.addEventListener('input', applyFilters);
+    category.addEventListener('change', applyFilters);
+    applyFilters();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLibraryFilters, { once: true });
+  } else {
+    initLibraryFilters();
+  }
+})();
+</script>
 </body></html>
