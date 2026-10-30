@@ -760,6 +760,68 @@
 </div>
 </header>
 <div class="wrap">
+<!-- 나그네의 식탁: 첫 방문 안내 (기존 운영자 소개 원문은 건드리지 않음) -->
+<style>
+#j127-welcome{max-width:960px;margin:26px auto;padding:clamp(18px,3vw,32px);background:#fffdf8;color:#23304a;border:1px solid #d5dce6;border-radius:22px;box-shadow:0 7px 24px rgba(20,30,60,.05);font-family:inherit}
+#j127-welcome h2{font-size:clamp(1.35rem,3vw,1.9rem);margin:0 0 9px}
+#j127-welcome .w-sub{color:#5a6375;line-height:1.7;margin:0 0 14px}
+#j127-welcome .w-why{display:inline-block;margin:0 0 22px;color:#27518b;font-weight:750;text-underline-offset:4px}
+#j127-welcome .w-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#j127-welcome .w-tile{border:1px solid #dce3ec;background:#f5f8fc;border-radius:14px;padding:15px 12px;text-align:left;cursor:pointer;min-height:92px;color:#23304a;font-family:inherit}
+#j127-welcome .w-tile strong{display:block;font-size:1rem;margin-bottom:5px}
+#j127-welcome .w-tile span{display:block;color:#5b6574;font-size:.82rem;line-height:1.4}
+#j127-welcome .w-tile:focus-visible{outline:3px solid #e9a348;outline-offset:2px}
+#j127-welcome .w-note{font-size:.77rem;color:#758092;margin:14px 0 0}
+@media(max-width:650px){#j127-welcome .w-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+<script>
+(function(){
+  function init(){
+    if(document.getElementById('j127-welcome'))return;
+    var about=document.getElementById('about');
+    var profile=document.getElementById('profile');
+    var library=document.getElementById('library-new');
+    if(!about && !library)return;
+    var host=document.createElement('section');host.id='j127-welcome';host.setAttribute('aria-label','처음 방문하신 분께');
+    host.innerHTML='<h2>처음 오셨나요?</h2><p class="w-sub">이곳에서 필요한 자료를 쉽게 찾으실 수 있도록 분야별 길을 마련했습니다. 운영자의 이야기는 기존 소개글에서 그대로 보실 수 있습니다.</p><a class="w-why" href="#profile">이 식탁을 마련한 이유 · 기존 운영자 소개 보기 ↗</a><div class="w-grid"></div><p class="w-note">자료는 정보 제공과 교육 목적이며, 외부 사이트는 해당 기관의 운영 정책을 따릅니다.</p>';
+    var tiles=[
+      ['이주민 건강','다국어 건강자료·생활정보','다문화·이주민'],
+      ['보건·의료','건강교육과 현장자료','보건·건강교육'],
+      ['다음 세대','부모·교사와 함께 배우기','감정·소통·돌봄'],
+      ['감정과 소통','감정 이해·관계 회복','감정·소통·돌봄'],
+      ['의료선교','봉사·보건교육 자료','의료선교·신앙'],
+      ['신앙과 묵상','말씀과 일상의 실천','의료선교·신앙']
+    ];
+    tiles.forEach(function(item){
+      var btn=document.createElement('button');btn.type='button';btn.className='w-tile';
+      var name=document.createElement('strong');name.textContent=item[0];
+      var desc=document.createElement('span');desc.textContent=item[1];
+      btn.append(name,desc);
+      btn.addEventListener('click',function(){
+        var select=document.getElementById('lib-category');
+        if(select && Array.from(select.options).some(function(o){return o.value===item[2]})){
+          select.value=item[2];
+          select.dispatchEvent(new Event('change',{bubbles:true}));
+        }
+        var target=document.getElementById('library-new');
+        if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+      host.querySelector('.w-grid').appendChild(btn);
+    });
+    if(profile){
+      host.querySelector('.w-why').addEventListener('click',function(){
+        var details=profile.querySelector('details');if(details)details.open=true;
+      });
+    }else{
+      host.querySelector('.w-why').remove();
+    }
+    if(about){about.parentNode.insertBefore(host,about);}else{library.parentNode.insertBefore(host,library);}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<!-- 첫 방문 안내 끝 -->
+
 <section aria-labelledby="mem-title" class="mem" id="memorize">
 <div class="mem-head">
 <p class="mem-eyebrow">SPECIAL 1 · 말씀 암송</p>
