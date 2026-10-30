@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style>
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style>
 #library-new{margin:2rem 0;padding:1.3rem;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;scroll-margin-top:18px}#library-new h2{font-family:var(--display);margin:0 0 .5rem}#library-new .lib-desc{color:var(--muted);font-size:.9rem}#library-new .lib-controls{display:flex;gap:.55rem;flex-wrap:wrap;margin:1rem 0}#library-new input,#library-new select{padding:.6rem .7rem;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--fg);font:inherit}#library-new input{flex:2 1 200px;min-width:0}#library-new select{flex:1 1 150px}#library-new .lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.7rem}#library-new .lib-entry{border:1px solid var(--line);border-radius:12px;padding:.8rem;display:flex;flex-direction:column;gap:.4rem;min-width:0}#library-new .lib-entry h3{font-size:.89rem;line-height:1.55;overflow-wrap:anywhere;margin:0}#library-new .lib-entry small{color:var(--muted)}#library-new .lib-entry img{width:100%;aspect-ratio:16/10;object-fit:contain;background:var(--surface-2);border-radius:8px}#library-new .lib-entry a{margin-top:auto;align-self:flex-start;color:var(--accent);font-weight:600}#library-new .lib-entry[hidden]{display:none}#library-new .lib-count{color:var(--muted);font-size:.8rem}
 </style><style>
 #library-new .lib-grid{display:block}
@@ -48,6 +48,19 @@
 </style>
 <style id="j127-description-style">
 #library-new .lib-entry .j127-item-description{margin:0;color:var(--muted);font-size:.83rem;line-height:1.55;overflow-wrap:anywhere;word-break:keep-all;display:block;}
+</style>
+<style id="j127-usability-improvements">
+/* 읽기 편한 기본 글자 크기와 터치 영역 */
+@media (max-width: 760px) {
+  body {font-size:16px}
+  #library-new .lib-entry h3 {font-size:1rem;line-height:1.55}
+  #library-new .lib-entry .j127-item-description {font-size:.93rem;line-height:1.6}
+  #library-new .lib-desc {font-size:.95rem}
+  #library-new .j127-category-button {min-height:44px}
+  #library-new .lib-entry a {min-height:44px;display:inline-flex;align-items:center}
+}
+:where(a,button,input,select,textarea,summary):focus-visible {outline:3px solid #b47930;outline-offset:3px}
+#site-disclaimer {font-size:.8rem;color:var(--muted);line-height:1.65;margin:.9rem 0}
 </style>
 </head><body>
 <!-- GitHub Pages edition: Claude 내부 첨부파일과 썸네일은 별도 업로드 후 연결해야 합니다. -->
@@ -1092,7 +1105,7 @@
 /* 이전 자료실은 운영 화면에서 숨김: 기존 스크립트 호환성 유지 */
 main#posts, main[id="posts"] { display:none!important; visibility:hidden!important; height:0!important; overflow:hidden!important; }
 </style>
-<section aria-labelledby="lib-head" id="library-new"><h2 id="lib-head">자료실</h2><p class="lib-desc">교육자료 64개를 5개 분야로 묶었습니다. 분야 선택과 제목 검색을 함께 이용할 수 있습니다.</p>
+<section aria-labelledby="lib-head" id="library-new"><h2 id="lib-head">자료실</h2><p class="lib-desc">분야별 자료를 검색하고 필요한 파일을 열어보세요. <span id="j127-material-total" aria-live="polite"></span></p>
 <!-- 자료실: 간결한 분야 선택 (버튼은 아래 스크립트에서 생성) -->
 <div id="library-category-tabs" class="j127-library-categories" role="group" aria-label="교육자료 분야 선택"></div>
 <!-- 다문화·이주민 외부 유용자료: 기존 64개 자료와 별도 -->
@@ -1201,6 +1214,18 @@ document.addEventListener('DOMContentLoaded', function () {
 <div class="viewer-body" id="vbody"></div>
 <div class="viewer-foot">보기 전용</div>
 </div>
+
+<script id="j127-material-count-dynamic">
+document.addEventListener('DOMContentLoaded', function () {
+  const counter = document.getElementById('j127-material-total');
+  if (!counter) return;
+  fetch('assets/materials.json', {cache:'no-store'})
+    .then(function(response){if(!response.ok) throw new Error('materials unavailable'); return response.json();})
+    .then(function(data){if(Array.isArray(data.items)) counter.textContent = ' · 전체 '+data.items.length+'개';})
+    .catch(function(){ counter.textContent = ''; });
+});
+</script>
+
 <section class="profile" id="profile">
 <details>
 <summary>운영자 소개 · 약력 · 쓴 글</summary>
@@ -1235,6 +1260,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <span>지역 <b>부산</b></span>
 </div>
 </section>
+<p id="site-disclaimer">이 사이트는 개인적인 배움과 자료 나눔을 위한 공간이며, 소속 기관의 공식 입장을 대변하지 않습니다. 건강정보는 일반 교육용으로 제공됩니다.</p>
 <footer>
 <span>© 2026 나그네의 식탁</span>
 <span>부산</span>
