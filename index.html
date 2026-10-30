@@ -46,6 +46,9 @@
 #library-new #multicultural-external-links article{padding:12px!important}
 @media(max-width:540px){#library-new .lib-group-grid{grid-template-columns:1fr}#library-new .j127-category-button{padding:10px 12px;font-size:.85rem}#library-new .j127-language-select{flex:1 1 100%}}
 </style>
+<style id="j127-description-style">
+#library-new .lib-entry .j127-item-description{margin:0;color:var(--muted);font-size:.83rem;line-height:1.55;overflow-wrap:anywhere;word-break:keep-all;display:block;}
+</style>
 </head><body>
 <!-- GitHub Pages edition: Claude 내부 첨부파일과 썸네일은 별도 업로드 후 연결해야 합니다. -->
 <meta content="cover" name="claude:viewport-fit-sides">
@@ -1619,6 +1622,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const small=document.createElement('small');small.textContent=item.category+' · '+(item.type||'PDF');article.appendChild(small);
   if(item.image){const im=document.createElement('img');im.alt=item.title;im.loading='lazy';im.src=item.image;article.appendChild(im)}
   const h=document.createElement('h3');h.textContent=item.title;article.appendChild(h);
+  if(item.description){const p=document.createElement('p');p.className='j127-item-description';p.textContent=item.description;article.appendChild(p);}
   const a=document.createElement('a');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='자료 열기 / 다운로드';article.appendChild(a);
   return article;
  }
@@ -1633,7 +1637,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if(/한국어|한글/.test(label))return '한국어';
     return '';
   }
-  const items=records.filter(x=>(!cat||x.category===cat)&&(!term||normalize(x.title).includes(term))&&(!chosenLanguage||languageOf(x.title)===chosenLanguage));
+  const items=records.filter(x=>(!cat||x.category===cat)&&(!term||(normalize(x.title)+' '+normalize(x.description)).includes(term))&&(!chosenLanguage||languageOf(x.title)===chosenLanguage));
   items.sort((a,b)=> {if(mode==='popular'){const diff=(Number(c[b.url])||0)-(Number(c[a.url])||0);if(diff)return diff}
     return mode==='old'?a.id-b.id:b.id-a.id});
   grid.replaceChildren();
