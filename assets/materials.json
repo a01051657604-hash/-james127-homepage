@@ -684,6 +684,15 @@
       "image": "",
       "type": "PPTX",
       "description": "아이의 마음을 키우는 일상 실천을 한국어·영어·베트남어·크메르어·러시아어로 소개합니다."
+    },
+    {
+      "id": 77,
+      "title": "History of my 코로나19 · 영상 기록 6편",
+      "category": "보건·건강교육",
+      "url": "assets/history-of-my-covid19.html",
+      "image": "",
+      "type": "VIDEO",
+      "description": "코로나19 대응의 경험과 기록을 담은 유튜브 영상 6편을 모아 볼 수 있습니다."
     }
   ]
 }
