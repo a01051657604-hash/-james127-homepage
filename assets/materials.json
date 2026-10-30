@@ -512,6 +512,102 @@
       "url": "assets/library/(중요) 필리핀 망얀족을 위한 증상별 대응방법.pdf",
       "image": "",
       "type": "PDF"
+    },
+    {
+      "id": 65,
+      "title": "다문화 부모 일곱 가지 다짐 · 한국어 인쇄용",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_parent_seven_promises_ko_print.pptx",
+      "image": "",
+      "type": "PPTX"
+    },
+    {
+      "id": 66,
+      "title": "다문화 부모 일곱 가지 다짐 · 한국어·영어",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_parent_seven_promises_ko_en.pptx",
+      "image": "",
+      "type": "PPTX"
+    },
+    {
+      "id": 67,
+      "title": "다문화 부모·아이 일곱 가지 다짐 · 한국어·베트남어",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_parent_child_seven_promises_ko_vi.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 68,
+      "title": "다문화 부모·아이 일곱 가지 다짐 · 한국어·크메르어",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_parent_child_seven_promises_ko_km.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 69,
+      "title": "다문화 아이 일곱 가지 다짐 · 한국어 인쇄용",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_child_seven_promises_ko_print.pptx",
+      "image": "",
+      "type": "PPTX"
+    },
+    {
+      "id": 70,
+      "title": "다문화 아이 일곱 가지 다짐 · 한국어·영어",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_child_seven_promises_ko_en.pptx",
+      "image": "",
+      "type": "PPTX"
+    },
+    {
+      "id": 71,
+      "title": "아이를 귀하게 여기는 부모의 말 10 · 한국어·러시아어",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_parent_ten_words_ko_ru.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 72,
+      "title": "두 문화를 잇는 부모입니다 · 한국어·러시아어",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_parent_two_cultures_ko_ru.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 73,
+      "title": "두 문화는 나의 힘 · 한국어·러시아어",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_child_two_cultures_ko_ru.pdf",
+      "image": "",
+      "type": "PDF"
+    },
+    {
+      "id": 74,
+      "title": "우리 아이 마음 키우기 · 통역 동반 상세 강의안",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_child_heart_detailed_interpreted.pptx",
+      "image": "",
+      "type": "PPTX"
+    },
+    {
+      "id": 75,
+      "title": "우리 아이 마음 키우기 · 한국어·영어·베트남어·크메르어·우르두어",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_child_heart_vi_km_ur.pptx",
+      "image": "",
+      "type": "PPTX"
+    },
+    {
+      "id": 76,
+      "title": "우리 아이 마음 키우기 실천편 · 한국어·영어·베트남어·크메르어·러시아어",
+      "category": "다문화·이주민",
+      "url": "assets/library/multicultural_child_heart_vi_km_ru.pptx",
+      "image": "",
+      "type": "PPTX"
     }
   ]
 }
