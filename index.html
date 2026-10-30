@@ -916,14 +916,48 @@ function show(i){selected=i;const v=data[i];detail.replaceChildren();const h=doc
 function render(){const q=search.value.trim().toLocaleLowerCase();const indices=data.map((x,i)=>i).filter(i=>!q||[data[i].name,data[i].en,data[i].meaning,data[i].needs].some(x=>x.toLocaleLowerCase().includes(q)));list.replaceChildren();for(const i of indices){const b=document.createElement('button');b.type='button';b.className='j127-feeling-chip';b.dataset.index=i;b.setAttribute('aria-pressed',String(selected===i));b.textContent=data[i].name;b.addEventListener('click',()=>show(i));list.append(b);}count.textContent=indices.length+'개 감정 표시 / 전체 '+data.length+'개';if(!indices.length){const p=document.createElement('p');p.textContent='검색 결과가 없습니다. 다른 단어로 찾아보세요.';list.append(p);}}
 search.addEventListener('input',render);render();
 })();</script></section>
-<!-- SPECIAL 3: 현장응급의료소장 지휘 매뉴얼 -->
+<!-- SPECIAL 3: 나의 강점 발견하기 — 공식 검사 연계, 해석은 전문가에게 -->
+<section aria-labelledby="strengths-title" class="strengths-section" id="strengths">
+<style>
+    #strengths {margin:36px 0;padding:clamp(22px,4vw,38px);border:1px solid var(--line,#d5dfdb);border-radius:22px;background:var(--surface,#fff);color:var(--fg,#23342e);box-shadow:0 8px 28px rgba(35,48,74,.05)}
+    #strengths .st-kicker{color:#28745d;font-size:.86rem;font-weight:800;letter-spacing:.06em;margin:0 0 10px}
+    #strengths h2{margin:0 0 14px;font-size:clamp(1.4rem,3vw,2rem);line-height:1.35}
+    #strengths .st-lead{line-height:1.85;font-size:1.03rem;margin:0 0 14px;word-break:keep-all}
+    #strengths .st-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:24px 0 20px}
+    #strengths .st-step{padding:20px 17px;border:1px solid var(--line,#d5dfdb);border-radius:15px;background:var(--surface-2,#f7faf8)}
+    #strengths .st-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#28745d;color:#fff;font-size:.98rem;font-weight:800}
+    #strengths .st-step h3{font-size:1.09rem;margin:12px 0 8px;line-height:1.4}
+    #strengths .st-step p{font-size:.96rem;line-height:1.75;margin:0;word-break:keep-all}
+    #strengths .st-link{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:50px;padding:12px 22px;background:#276f5a;color:white!important;text-decoration:none;border-radius:12px;font-size:1.06rem;font-weight:800}
+    #strengths .st-link:hover{background:#18513f;text-decoration:underline}
+    #strengths a:focus-visible{outline:3px solid #d48b28;outline-offset:4px}
+    #strengths .st-notice{margin:19px 0 0;padding:17px 18px;background:var(--surface-2,#f7faf8);border-left:4px solid #28745d;border-radius:0 10px 10px 0;line-height:1.8;font-size:.96rem;word-break:keep-all}
+    #strengths .st-small{margin:12px 0 0;font-size:.87rem;line-height:1.75;color:var(--muted,#67736e)}
+    #strengths .st-small a{color:inherit;text-underline-offset:2px}
+    @media(max-width:700px){#strengths .st-grid{grid-template-columns:1fr}#strengths .st-link{display:flex;width:100%;box-sizing:border-box}}
+  </style>
+<p class="st-kicker">SPECIAL 3 · 나의 강점 발견하기</p>
+<h2 id="strengths-title">나의 강점 발견하기</h2>
+<p class="st-lead">누구에게나 자신만의 강점이 있습니다. 강점을 발견하는 일은 다른 사람보다 뛰어난 점을 찾는 것이 아니라, 나에게 있는 좋은 특성을 이해하고 삶에서 어떻게 활용할지 생각해 보는 과정입니다.</p>
+<p class="st-lead"><strong>검사는 공식 제공기관에서 직접 진행하고, 심층적인 결과 해석은 관련 전문가에게 의뢰하세요.</strong></p>
+<div aria-label="검사 이용 순서" class="st-grid">
+<div class="st-step"><span aria-hidden="true" class="st-num">1</span><h3>공식 강점 검사</h3><p>성인 대상 VIA 성격강점 검사를 공식 홈페이지에서 한국어로 진행합니다.</p></div>
+<div class="st-step"><span aria-hidden="true" class="st-num">2</span><h3>결과 확인·보관</h3><p>검사 제공기관에서 결과를 확인하고 본인이 보관합니다. 이 홈페이지로 제출할 필요는 없습니다.</p></div>
+<div class="st-step"><span aria-hidden="true" class="st-num">3</span><h3>전문가 해석 의뢰</h3><p>심층 해석을 원한다면 해당 검사에 대한 교육과 상담 경험이 있는 전문가에게 직접 문의합니다.</p></div>
+</div>
+<a aria-label="VIA 성인용 성격강점 검사 홈페이지 새 창에서 열기" class="st-link" href="https://www.viacharacter.org/" rel="noopener noreferrer" target="_blank">VIA 성인용 강점 검사(한국어 선택) ↗</a>
+<p class="st-small"><strong>검사 안내:</strong> 이 코너는 성인 대상 검사만 안내합니다. VIA 공식 홈페이지에서 한국어를 선택하여 응시할 수 있습니다. 기본 검사와 일부 결과 확인은 무료이며, 심층 보고서에는 별도 비용이 발생할 수 있습니다.</p>
+<div class="st-notice"><strong>이용 안내</strong><br/>이 코너는 자기이해를 돕기 위한 외부 검사 안내입니다. 검사 결과만으로 성격, 능력, 진로 또는 정신건강 상태를 단정하지 마세요. 개인별 해석과 상담은 전문가의 도움을 받으시기 바랍니다. 「나그네의 식탁」은 검사 답변이나 결과를 수집·저장하지 않으며 전문가 상담을 직접 중개하지 않습니다.</div>
+<p class="st-small">검사 제공 및 저작권: <a href="https://www.viacharacter.org/faq/permissions-and-guidelines-for-use-and-interpretation" rel="noopener noreferrer" target="_blank">VIA Institute on Character — 이용·해석 지침 ↗</a></p>
+</section>
+<!-- SPECIAL 4: 현장응급의료소장 지휘 매뉴얼 -->
 <section aria-labelledby="special-5-title" id="special-5" style="margin:36px 0;padding:clamp(22px,4vw,38px);
   background:#fffdf8;border:1px solid #cfd6e6;
   border-radius:22px;box-shadow:0 8px 28px rgba(35,48,74,.06)">
 <p style="margin:0 0 10px;color:#2f4f93;
     font-weight:800;letter-spacing:.08em;
     font-size:.88rem;">
-    SPECIAL 3 · 재난현장 의료지휘
+    SPECIAL 4 · 재난현장 의료지휘
   </p>
 <h2 id="special-5-title" style="margin:0 0 14px;
     font-size:clamp(1.35rem,3vw,2rem);
@@ -965,40 +999,6 @@ search.addEventListener('input',render);render();
     휴대전화 열람 지원 · 교육·훈련용 자료 ·
     실제 현장에서는 최신 공식 지침 우선
   </p>
-</section>
-<!-- SPECIAL 4: 나의 강점 발견하기 — 공식 검사 연계, 해석은 전문가에게 -->
-<section aria-labelledby="strengths-title" class="strengths-section" id="strengths">
-<style>
-    #strengths {margin:36px 0;padding:clamp(22px,4vw,38px);border:1px solid var(--line,#d5dfdb);border-radius:22px;background:var(--surface,#fff);color:var(--fg,#23342e);box-shadow:0 8px 28px rgba(35,48,74,.05)}
-    #strengths .st-kicker{color:#28745d;font-size:.86rem;font-weight:800;letter-spacing:.06em;margin:0 0 10px}
-    #strengths h2{margin:0 0 14px;font-size:clamp(1.4rem,3vw,2rem);line-height:1.35}
-    #strengths .st-lead{line-height:1.85;font-size:1.03rem;margin:0 0 14px;word-break:keep-all}
-    #strengths .st-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:24px 0 20px}
-    #strengths .st-step{padding:20px 17px;border:1px solid var(--line,#d5dfdb);border-radius:15px;background:var(--surface-2,#f7faf8)}
-    #strengths .st-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#28745d;color:#fff;font-size:.98rem;font-weight:800}
-    #strengths .st-step h3{font-size:1.09rem;margin:12px 0 8px;line-height:1.4}
-    #strengths .st-step p{font-size:.96rem;line-height:1.75;margin:0;word-break:keep-all}
-    #strengths .st-link{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:50px;padding:12px 22px;background:#276f5a;color:white!important;text-decoration:none;border-radius:12px;font-size:1.06rem;font-weight:800}
-    #strengths .st-link:hover{background:#18513f;text-decoration:underline}
-    #strengths a:focus-visible{outline:3px solid #d48b28;outline-offset:4px}
-    #strengths .st-notice{margin:19px 0 0;padding:17px 18px;background:var(--surface-2,#f7faf8);border-left:4px solid #28745d;border-radius:0 10px 10px 0;line-height:1.8;font-size:.96rem;word-break:keep-all}
-    #strengths .st-small{margin:12px 0 0;font-size:.87rem;line-height:1.75;color:var(--muted,#67736e)}
-    #strengths .st-small a{color:inherit;text-underline-offset:2px}
-    @media(max-width:700px){#strengths .st-grid{grid-template-columns:1fr}#strengths .st-link{display:flex;width:100%;box-sizing:border-box}}
-  </style>
-<p class="st-kicker">SPECIAL 4 · 나의 강점 발견하기</p>
-<h2 id="strengths-title">나의 강점 발견하기</h2>
-<p class="st-lead">누구에게나 자신만의 강점이 있습니다. 강점을 발견하는 일은 다른 사람보다 뛰어난 점을 찾는 것이 아니라, 나에게 있는 좋은 특성을 이해하고 삶에서 어떻게 활용할지 생각해 보는 과정입니다.</p>
-<p class="st-lead"><strong>검사는 공식 제공기관에서 직접 진행하고, 심층적인 결과 해석은 관련 전문가에게 의뢰하세요.</strong></p>
-<div aria-label="검사 이용 순서" class="st-grid">
-<div class="st-step"><span aria-hidden="true" class="st-num">1</span><h3>공식 강점 검사</h3><p>성인 대상 VIA 성격강점 검사를 공식 홈페이지에서 한국어로 진행합니다.</p></div>
-<div class="st-step"><span aria-hidden="true" class="st-num">2</span><h3>결과 확인·보관</h3><p>검사 제공기관에서 결과를 확인하고 본인이 보관합니다. 이 홈페이지로 제출할 필요는 없습니다.</p></div>
-<div class="st-step"><span aria-hidden="true" class="st-num">3</span><h3>전문가 해석 의뢰</h3><p>심층 해석을 원한다면 해당 검사에 대한 교육과 상담 경험이 있는 전문가에게 직접 문의합니다.</p></div>
-</div>
-<a aria-label="VIA 성인용 성격강점 검사 홈페이지 새 창에서 열기" class="st-link" href="https://www.viacharacter.org/" rel="noopener noreferrer" target="_blank">VIA 성인용 강점 검사(한국어 선택) ↗</a>
-<p class="st-small"><strong>검사 안내:</strong> 이 코너는 성인 대상 검사만 안내합니다. VIA 공식 홈페이지에서 한국어를 선택하여 응시할 수 있습니다. 기본 검사와 일부 결과 확인은 무료이며, 심층 보고서에는 별도 비용이 발생할 수 있습니다.</p>
-<div class="st-notice"><strong>이용 안내</strong><br/>이 코너는 자기이해를 돕기 위한 외부 검사 안내입니다. 검사 결과만으로 성격, 능력, 진로 또는 정신건강 상태를 단정하지 마세요. 개인별 해석과 상담은 전문가의 도움을 받으시기 바랍니다. 「나그네의 식탁」은 검사 답변이나 결과를 수집·저장하지 않으며 전문가 상담을 직접 중개하지 않습니다.</div>
-<p class="st-small">검사 제공 및 저작권: <a href="https://www.viacharacter.org/faq/permissions-and-guidelines-for-use-and-interpretation" rel="noopener noreferrer" target="_blank">VIA Institute on Character — 이용·해석 지침 ↗</a></p>
 </section>
 <script>
   (() => {
