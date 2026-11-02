@@ -96,8 +96,8 @@
 #emotion .j127-feeling-reference[open]>summary{border-bottom:1px solid #edb8cd}
 #emotion .j127-feeling-reference .j127-feeling-library{margin:0;border:none;box-shadow:none;border-radius:0}
 </style>
-/* 나그네의 식탁 · 모바일 가독성 및 기존 배경사진 활용 시각 개선안 (2026-11) */
 <style id="j127-mobile-refresh">
+/* 나그네의 식탁 · 모바일 가독성 및 기존 배경사진 활용 시각 개선안 (2026-11) */
 :root{--j127-text:#252a30;--j127-muted:#555c65}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR", "Malgun Gothic",system-ui,sans-serif;line-height:1.72;word-break:keep-all;color:var(--j127-text)}
@@ -1596,77 +1596,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const BODY_AT_LOAD = document.body.innerHTML;
   async function pageSource() {
     try { const r = await fetch("index.html", { cache: "no-store" }); if (r.ok) { const t = await r.text(); if (t.trim().toLowerCase().startsWith("<!doctype html") && t.includes('id="posts-data"')) return t; } } catch (e) {}
-    return HEAD + "\n" + BODY_AT_LOAD + "\n<script>(function(){const q=document.getElementById('lib-search'),s=document.getElementById('lib-category'),c=document.getElementById('lib-count'),all=[...document.querySelectorAll('#library-new .lib-entry')];function update(){let n=0;all.forEach(e=>{const ok=(!s.value||e.dataset.cat===s.value)&&(!q.value||e.dataset.title.includes(q.value.trim().toLocaleLowerCase()));e.hidden=!ok;if(ok)n++;});c.textContent=n+'개 자료 표시 / 전체 '+all.length+'개';}q.addEventListener('input',update);s.addEventListener('change',update);update();})();</script>
-<!-- 자료실 분야별 탭 작동 기능 -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const library = document.getElementById("library-new");
-  const tabs = document.getElementById("library-category-tabs");
-  const category = document.getElementById("lib-category");
-
-  if (!library || !tabs || !category) return;
-
-  const fields = [
-    ["", "전체 자료"],
-    ["다문화·이주민", "다문화·이주민"],
-    ["보건·건강교육", "보건·건강교육"],
-    ["감정·소통·돌봄", "감정·소통·돌봄"],
-    ["의료선교·신앙", "의료선교·신앙"],
-    ["기타 교육자료", "기타"]
-  ];
-
-  function drawTabs() {
-    tabs.innerHTML = "";
-
-    fields.forEach(function (field) {
-      const exists = !field[0] ||
-        Array.from(category.options).some(
-          option => option.value === field[0]
-        );
-
-      if (!exists) return;
-
-      const button = document.createElement("button");
-      button.type = "button";
-      button.textContent = field[1];
-
-      const active = category.value === field[0];
-
-      button.style.cssText =
-        "padding:12px 16px;border-radius:12px;" +
-        "border:1px solid #cfd6e6;" +
-        "font-weight:700;cursor:pointer;" +
-        "background:" + (active ? "#2f4f93" : "#edf2f8") + ";" +
-        "color:" + (active ? "#ffffff" : "#2f4f93");
-
-      button.setAttribute("aria-pressed", String(active));
-
-      button.addEventListener("click", function () {
-        category.value = field[0];
-        category.dispatchEvent(
-          new Event("change", { bubbles: true })
-        );
-        drawTabs();
-      });
-
-      tabs.appendChild(button);
-    });
-  }
-
-  category.addEventListener("change", drawTabs);
-
-  // 처음에는 보건·건강교육 자료만 표시
-  category.value = "보건·건강교육";
-  category.dispatchEvent(
-    new Event("change", { bubbles: true })
-  );
-
-  drawTabs();
-});
-</script>
-<!-- 자료실 분야별 탭 작동 기능 끝 -->
-<script defer="" src="library-collapse.js"></script>
-</body></html>";
+    return HEAD + "\n" + BODY_AT_LOAD + "\n</body></html>";
   }
   async function savePosts(next, failMsg) {
     try {
