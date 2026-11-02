@@ -95,7 +95,54 @@
 #emotion .j127-feeling-reference>summary:hover{background:#ffeaf2}
 #emotion .j127-feeling-reference[open]>summary{border-bottom:1px solid #edb8cd}
 #emotion .j127-feeling-reference .j127-feeling-library{margin:0;border:none;box-shadow:none;border-radius:0}
-</style></head><body>
+</style>
+/* 나그네의 식탁 · 모바일 가독성 및 기존 배경사진 활용 시각 개선안 (2026-11) */
+<style id="j127-mobile-refresh">
+:root{--j127-text:#252a30;--j127-muted:#555c65}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR", "Malgun Gothic",system-ui,sans-serif;line-height:1.72;word-break:keep-all;color:var(--j127-text)}
+button,input,textarea,select{font-family:inherit}
+header.hero{background-size:cover;background-repeat:no-repeat;background-position:center 63%;isolation:isolate}
+header.hero:before{content:"";pointer-events:none;position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,24,27,.62),rgba(18,24,27,.20) 78%),linear-gradient(0deg,rgba(18,24,27,.58),transparent 46%);z-index:0}
+header.hero>*{position:relative;z-index:1}
+header.hero h1,.hero-title h1{font-family:Pretendard,"Noto Sans KR",sans-serif;font-weight:800;line-height:1.27;letter-spacing:-.035em;text-shadow:0 2px 13px rgba(0,0,0,.42)}
+#memorize,#present-is-present,#emotion,#special-5,#library-new{scroll-margin-top:18px;box-shadow:0 7px 26px rgba(30,36,40,.055)!important;overflow-wrap:anywhere}
+#memorize{border:1px solid #d1dff1!important;border-radius:22px!important;background:#f7faff!important}
+#present-is-present{border:1px solid #e9d5b6!important;border-radius:22px!important;background:#fffbf4!important}
+#emotion{border:1px solid #e8c2d1!important;border-radius:22px!important;background:#fff7fa!important}
+#special-5{border:1px solid #c9dbd1!important;border-radius:22px!important;background:#f7fbf8!important}
+#library-new{border-radius:22px!important}
+#memorize .mem-head:before,#present-is-present:before,#emotion .emo-head:before,#special-5:before{display:flex;width:48px;height:48px;border-radius:15px;align-items:center;justify-content:center;font-size:23px;line-height:1;margin-bottom:13px;box-shadow:0 4px 12px rgba(20,20,20,.035)}
+#memorize .mem-head:before{content:"▤";color:#305f96;background:#e4eefa}
+#present-is-present:before{content:"☀";color:#9a712d;background:#f6e7c6}
+#emotion .emo-head:before{content:"♡";color:#ab4f78;background:#fde6ef}
+#special-5:before{content:"✚";color:#47785e;background:#deefe5}
+#memorize h2,#present-is-present h2,#emotion h2,#special-5 h2,#library-new h2{font-family:Pretendard,"Noto Sans KR",sans-serif!important;font-size:clamp(1.5rem,4.4vw,2.05rem)!important;font-weight:800!important;letter-spacing:-.035em!important;line-height:1.3!important}
+#memorize p,#present-is-present p,#emotion p,#special-5 p,#library-new p{line-height:1.7}
+#present-is-present .pip-panel{background:#fff!important;border:1px solid #e9dfd0!important;border-radius:18px!important;box-shadow:0 5px 18px rgba(104,75,35,.045)}
+#present-is-present textarea{min-height:125px;font-size:16px!important;line-height:1.65;background:#fffdfb!important;border-radius:12px!important}
+#emotion input,#emotion textarea,#library-new input,#library-new select{font-size:16px!important}
+#memorize button,#present-is-present button,#emotion button,#special-5 button,#library-new button{min-height:44px;touch-action:manipulation}
+:where(a,button,input,textarea,select,summary):focus-visible{outline:3px solid #1761aa!important;outline-offset:3px}
+@media(max-width:760px){
+ body{font-size:16px!important;line-height:1.68!important}
+ header.hero{min-height:430px!important;background-position:47% 62%!important}
+ header.hero:before{background:linear-gradient(90deg,rgba(16,19,21,.67),rgba(16,19,21,.23)),linear-gradient(0deg,rgba(16,19,21,.64),transparent 65%)}
+ .hero-title{padding:18px!important}
+ header.hero h1,.hero-title h1{font-size:clamp(29px,8vw,39px)!important}
+ #memorize,#present-is-present,#emotion,#special-5,#library-new{margin-top:22px!important;margin-bottom:22px!important;padding:22px 18px!important;border-radius:19px!important}
+ #memorize h2,#present-is-present h2,#emotion h2,#special-5 h2,#library-new h2{font-size:24px!important}
+ #memorize .mem-head:before,#present-is-present:before,#emotion .emo-head:before,#special-5:before{width:44px;height:44px;font-size:21px;border-radius:13px}
+ #present-is-present .pip-panel{padding:17px 14px!important}
+ #library-new .lib-controls{gap:10px}
+ #library-new .lib-controls input,#library-new .lib-controls select{width:100%;min-width:0;box-sizing:border-box;min-height:46px}
+ #emotion blockquote{font-size:15px!important}
+ #emotion .emo-intro{font-size:16px!important}
+ .lib-group{border-radius:15px!important}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head><body>
 <!-- GitHub Pages edition: Claude 내부 첨부파일과 썸네일은 별도 업로드 후 연결해야 합니다. -->
 <meta content="cover" name="claude:viewport-fit-sides"/>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
