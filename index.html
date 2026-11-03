@@ -196,7 +196,29 @@ header.hero h1,.hero-title h1{font-family:Pretendard,"Noto Sans KR",sans-serif;f
 #daily-practice #present-is-present textarea{width:100%;min-height:118px;font-size:1rem}
 #daily-practice .pip-actions button{min-height:46px}
 @media(max-width:520px){#daily-practice{padding:15px;margin:22px 0}#daily-practice .daily-summary{padding:10px;gap:9px}#daily-practice .daily-icon{width:38px;height:38px}#daily-practice .daily-summary-copy strong{font-size:1.04rem}#daily-practice .daily-step-body{padding:12px}}
-</style></head><body>
+</style>
+<style id="j127-art-corner-style">
+/* 예술 산책: 모바일 접이식 큐레이션 (기존 배경사진 등 미변경) */
+#art-journey{margin:28px 0;padding:clamp(18px,4vw,30px);border:1px solid #d9d9e6;border-radius:22px;background:linear-gradient(145deg,#f8f7fd,#fffdfb);box-shadow:0 9px 26px rgba(42,35,66,.055);font-family:Pretendard,'Noto Sans KR',sans-serif;color:#282738}
+#art-journey .art-label{font-size:.85rem;font-weight:800;color:#65568d;letter-spacing:.02em;margin:0 0 7px}
+#art-journey h2{font-size:clamp(1.5rem,4.8vw,2rem);margin:0 0 7px;letter-spacing:-.025em;color:#37304e}
+#art-journey .art-sub{margin:0 0 18px;font-size:1rem;line-height:1.65;color:#625e69}
+#art-journey .art-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:14px 0 17px}
+#art-journey .art-mini{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;border:1px solid #e1dfed;background:#fff;border-radius:15px;padding:14px 5px;color:#51446e;font-size:.92rem;font-weight:750;line-height:1.2}
+#art-journey .art-mini span:first-child{font-size:1.5rem}
+#art-journey details{border:1px solid #e4e1ec;border-radius:14px;background:#fff;margin:10px 0;overflow:hidden}
+#art-journey summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:54px;padding:14px 16px;font-size:1.06rem;font-weight:750;color:#45395e;cursor:pointer}
+#art-journey summary::-webkit-details-marker{display:none}
+#art-journey summary:after{content:'＋';font-size:1.3rem;color:#81749a}
+#art-journey details[open] summary:after{content:'−'}
+#art-journey .art-links{padding:0 16px 15px;display:grid;gap:10px}
+#art-journey .art-links a{display:block;padding:12px 14px;border-radius:11px;background:#f7f5fb;border:1px solid #e4deef;color:#453b70;text-decoration:none;font-weight:700;line-height:1.45;overflow-wrap:anywhere}
+#art-journey .art-links a small{display:block;font-size:.86rem;font-weight:400;color:#65616f;margin-top:4px}
+#art-journey :is(a,summary):focus-visible{outline:3px solid #7965b7;outline-offset:2px}
+#art-journey .art-note{font-size:.84rem;color:#746f7b;margin:13px 0 0;line-height:1.55}
+@media(max-width:420px){#art-journey{padding:18px 14px}#art-journey .art-mini{font-size:.9rem;padding:13px 2px}#art-journey .art-sub{font-size:.96rem}}
+</style>
+</head><body>
 <!-- GitHub Pages edition: Claude 내부 첨부파일과 썸네일은 별도 업로드 후 연결해야 합니다. -->
 <meta content="cover" name="claude:viewport-fit-sides"/>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
@@ -1077,9 +1099,39 @@ else { init_gratitude_j127(); }
 </details>
 <p class="pip-footnote">기록은 이 기기에만 저장됩니다. 필요하면 복사해 보관하세요.</p>
 <p class="pip-footnote">오늘 감사한 일이 바로 떠오르지 않아도 괜찮습니다. 편안할 때 다시 기록해 보세요.</p>
-</section></div></details></section><section aria-labelledby="emo-title" class="emo" id="emotion">
+</section></div></details></section><section id="art-journey" aria-labelledby="art-journey-title">
+  <p class="art-label">SPECIAL 3 · 오늘의 예술 산책</p>
+  <h2 id="art-journey-title">예술과 만나는 짧은 쉼</h2>
+  <p class="art-sub">그림 한 점, 사진 한 장, 클래식 한 곡. 마음에 드는 분야를 눌러 작품을 만나보세요.</p>
+  <div class="art-grid" aria-hidden="true">
+    <div class="art-mini"><span>🖼️</span><span>미술</span></div>
+    <div class="art-mini"><span>📷</span><span>사진</span></div>
+    <div class="art-mini"><span>🎼</span><span>클래식</span></div>
+  </div>
+  <details><summary>🖼️ 미술 · 주요 작품 감상</summary>
+    <div class="art-links">
+      <a href="https://www.artbank.go.kr/collection" target="_blank" rel="noopener noreferrer">국립현대미술관 미술은행 <small>한국 미술 작품과 소장품 검색 · 원래 보내주신 링크</small></a>
+      <a href="https://artsandculture.google.com/explore?hl=ko" target="_blank" rel="noopener noreferrer">Google Arts &amp; Culture <small>세계 주요 미술관의 작품과 가상 전시</small></a>
+      <a href="https://www.mmca.go.kr/" target="_blank" rel="noopener noreferrer">국립현대미술관 <small>국내 현대미술 작품과 전시 정보</small></a>
+    </div>
+  </details>
+  <details><summary>📷 사진 · 아름다운 이미지</summary>
+    <div class="art-links">
+      <a href="https://commons.wikimedia.org/wiki/Commons:Featured_pictures/ko" target="_blank" rel="noopener noreferrer">위키미디어 우수 사진 <small>풍경·자연·인물 등 엄선된 사진 탐색</small></a>
+      <a href="https://artsandculture.google.com/explore?hl=ko" target="_blank" rel="noopener noreferrer">Google Arts &amp; Culture 사진 <small>검색창에서 ‘사진’ 또는 ‘Photography’ 검색</small></a>
+    </div>
+  </details>
+  <details><summary>🎼 클래식 · 연주 감상</summary>
+    <div class="art-links">
+      <a href="https://www.youtube.com/channel/UCwmgO3PhE925-mLG1h26Uow" target="_blank" rel="noopener noreferrer">서울시립교향악단 공식 채널 <small>클래식 연주 영상과 공연 관련 콘텐츠</small></a>
+      <a href="https://www.arte.tv/en/arte-concert/classical" target="_blank" rel="noopener noreferrer">ARTE Concert · Classical <small>해외 오케스트라·독주회 영상 (일부 지역 제한 가능)</small></a>
+    </div>
+  </details>
+  <p class="art-note">각 자료는 외부 공식 사이트에서 감상합니다. 작품 감상 및 영상 이용 조건은 제공처에 따라 다릅니다.</p>
+</section>
+<section aria-labelledby="emo-title" class="emo" id="emotion">
 <div class="emo-head">
-<p class="emo-eyebrow">SPECIAL 3 · 감정라벨링과 비폭력대화</p>
+<p class="emo-eyebrow">SPECIAL 4 · 감정라벨링과 비폭력대화</p>
 <h2 id="emo-title">마음 들여다보기</h2>
 <div class="emo-cite">
 <blockquote><p>“인간에게서 모든 것을 빼앗을 수 있어도, 어떤 상황에서든 자신의 태도를 선택할 자유만은 빼앗을 수 없다.”</p><cite>빅터 프랭클, 『죽음의 수용소에서』</cite></blockquote>
@@ -1301,7 +1353,7 @@ main#posts, main[id="posts"] { display:none!important; visibility:hidden!importa
 <section aria-labelledby="sepp365-title" class="j127-sepp365" id="sepp365">
   <div class="j127-sepp365-icon" aria-hidden="true">♻</div>
   <div class="j127-sepp365-body">
-    <p class="j127-sepp365-kicker">SPECIAL 4 · 가치 있는 소비</p>
+    <p class="j127-sepp365-kicker">SPECIAL 5 · 가치 있는 소비</p>
     <h2 id="sepp365-title">스토어 36.5</h2>
     <p>사회적 가치와 착한 소비를 연결하는 온라인 쇼핑 플랫폼입니다. 공정무역·지역상생·친환경 상품 등을 만나보세요.</p>
   </div>
@@ -1362,7 +1414,7 @@ document.addEventListener('DOMContentLoaded', function () {
   border-radius:22px;box-shadow:0 8px 28px rgba(35,48,74,.06)">
 <p style="margin:0 0 10px;color:#2f4f93;
     font-weight:800;letter-spacing:.08em;
-    font-size:.88rem;">SPECIAL 5 · 재난현장 의료지휘</p>
+    font-size:.88rem;">SPECIAL 6 · 재난현장 의료지휘</p>
 <h2 id="special-5-title" style="margin:0 0 14px;
     font-size:clamp(1.35rem,3vw,2rem);
     color:#23304a;line-height:1.35;">
