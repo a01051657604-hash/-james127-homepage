@@ -1394,8 +1394,17 @@ main#posts, main[id="posts"] { display:none!important; visibility:hidden!importa
 .j127-sepp365-body p:last-child{font-size:1rem;margin:0;line-height:1.65;word-break:keep-all}
 .j127-sepp365-link{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:12px 18px;background:#32684e;color:#fff!important;border-radius:12px;font-size:1rem;font-weight:750;text-decoration:none!important;text-align:center}
 .j127-sepp365-link:focus-visible{outline:3px solid #b48728;outline-offset:3px}
-@media(max-width:650px){.j127-sepp365{padding:17px;gap:12px}.j127-sepp365-link{width:100%}}
+/* 두 사회적 가치 연결을 같은 높이의 카드로 배치 */
+.j127-social-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:26px 0 30px;align-items:stretch}
+.j127-social-links .j127-sepp365{margin:0;min-width:0;display:flex;align-content:start}
+.j127-social-links .j127-sepp365-body{flex:1 1 150px}
+.j127-social-links .j127-sepp365-link{width:100%;box-sizing:border-box}
+.j127-maeul{background:linear-gradient(115deg,#f0f4fa,#fffdf6);border-color:#d6e0ec}
+.j127-maeul .j127-sepp365-icon{background:#dce8f2;color:#315a7a}
+.j127-maeul .j127-sepp365-link{background:#375f80}
+@media(max-width:650px){.j127-social-links{grid-template-columns:1fr;gap:12px}.j127-sepp365{padding:17px;gap:12px}.j127-sepp365-link{width:100%}}
 </style>
+<div class="j127-social-links" aria-label="유용한 연결: 스토어 36.5와 마을기업">
 <section aria-labelledby="sepp365-title" class="j127-sepp365" id="sepp365">
 <div aria-hidden="true" class="j127-sepp365-icon">♻</div>
 <div class="j127-sepp365-body">
@@ -1404,7 +1413,17 @@ main#posts, main[id="posts"] { display:none!important; visibility:hidden!importa
 <p>가치 있는 소비를 위한 외부 연결</p>
 </div>
 <a aria-label="스토어 36.5 홈페이지 새 창에서 열기" class="j127-sepp365-link" href="https://naver.me/FtGoJOdV" rel="noopener noreferrer" target="_blank">스토어 36.5 둘러보기 <span aria-hidden="true">↗</span></a>
-</section><aside class="j127-challenge-link" aria-label="어예기해 챌린지 외부 연결"><div class="j127-challenge-copy"><span aria-hidden="true">✧</span><div><strong>어예기해 챌린지</strong><small>어떻게 예수님을 기쁘시게 해드릴까?</small></div></div><a href="https://open.kakao.com/o/p7tYppdi" target="_blank" rel="noopener noreferrer">챌린지 참여하기 ↗</a></aside>
+</section>
+<section aria-labelledby="maeul-title" class="j127-sepp365 j127-maeul" id="maeul-business">
+<div aria-hidden="true" class="j127-sepp365-icon">⌂</div>
+<div class="j127-sepp365-body">
+<p class="j127-sepp365-kicker">유용한 연결 · 지역공동체</p>
+<h2 id="maeul-title">마을기업</h2>
+<p>지역의 문제를 함께 해결하는 마을기업을 찾아보세요.</p>
+</div>
+<a aria-label="마을기업 공식 홈페이지 새 창에서 열기" class="j127-sepp365-link" href="https://www.maeulgiup.go.kr/invil/main/main.do" rel="noopener noreferrer" target="_blank">마을기업 알아보기 <span aria-hidden="true">↗</span></a>
+</section>
+</div><aside class="j127-challenge-link" aria-label="어예기해 챌린지 외부 연결"><div class="j127-challenge-copy"><span aria-hidden="true">✧</span><div><strong>어예기해 챌린지</strong><small>어떻게 예수님을 기쁘시게 해드릴까?</small></div></div><a href="https://open.kakao.com/o/p7tYppdi" target="_blank" rel="noopener noreferrer">챌린지 참여하기 ↗</a></aside>
 <section aria-labelledby="lib-head" id="library-new"><h2 id="lib-head">자료실</h2><details class="j127-library-disclosure" id="j127-library-disclosure"><summary aria-label="자료실 펼쳐 보기 또는 접기">자료실 펼쳐 보기<span aria-hidden="true" class="j127-library-toggle-hint">▼</span></summary><div class="j127-library-disclosure-body"><p class="lib-desc">원하는 분야를 선택하고 자료명을 검색해 보세요.</p>
 <!-- 자료실: 간결한 분야 선택 (버튼은 아래 스크립트에서 생성) -->
 <div aria-label="교육자료 분야 선택" class="j127-library-categories" id="library-category-tabs" role="group"></div>
