@@ -21,12 +21,12 @@
     },
     {
       "id": 3,
-      "title": "(최종수정) Malinis_na_Tubig_Mangyan_Pastors_40min",
+      "title": "2부 보건교육 강의안 · 깨끗한 물, 건강한 마을 (한국어·따갈로그어)",
       "category": "의료선교·신앙",
-      "url": "assets/library/doc-003-99c38c9c421c.pdf",
+      "url": "assets/library/mission_health_education_part2_tagalog_2026.pptx",
       "image": "",
-      "type": "PDF",
-      "description": "망얀족 목회자를 위한 깨끗한 물과 위생 교육 강의자료입니다."
+      "type": "PPTX",
+      "description": "필리핀 현장 보건교육 2부 강의자료로 물·위생과 감염예방 실천을 한국어·따갈로그어로 설명합니다."
     },
     {
       "id": 4,
@@ -693,6 +693,24 @@
       "url": "assets/history-of-my-covid19.html",
       "image": "",
       "type": "HTML"
+    },
+    {
+      "id": 78,
+      "title": "필리핀 목회자를 위한 강의안 · 한국어·따갈로그어 병기",
+      "category": "의료선교·신앙",
+      "url": "assets/library/mission_pastor_lecture_ko_tagalog_2026.pdf",
+      "image": "",
+      "type": "PDF",
+      "description": "전도폭발과 깨끗한 물·위생 보건교육 강의를 한국어와 따갈로그어로 함께 수록한 자료입니다."
+    },
+    {
+      "id": 79,
+      "title": "필리핀 현지어 복음 메시지 · 따갈로그어",
+      "category": "의료선교·신앙",
+      "url": "assets/library/mission_gospel_message_tagalog_2026.pdf",
+      "image": "",
+      "type": "PDF",
+      "description": "현지에서 활용할 수 있는 따갈로그어 복음 메시지를 담은 PDF입니다."
     }
   ]
 }
