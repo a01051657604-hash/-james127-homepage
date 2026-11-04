@@ -1894,6 +1894,13 @@ document.addEventListener('DOMContentLoaded', function () {
   url:entry.querySelector('a[href]')?.getAttribute('href')||'',image:entry.querySelector('img')?.getAttribute('src')||'',
   type:(entry.querySelector('small')?.textContent||'PDF').split('·').pop().trim()
  }));
+ // 이주민 건강권 세미나 인포그래픽 13장: 외부 자료 목록 JSON과 무관하게 표시합니다.
+ const migrantHealthImages = [{"id":10001,"title":"시리즈 소개","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/01_시리즈_소개.png","image":"assets/migrant-health/01_시리즈_소개.png","description":"이주민 건강권 세미나 자료 요약 · 1 / 13"},{"id":10002,"title":"의료이용 격차","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/02_의료이용_격차.png","image":"assets/migrant-health/02_의료이용_격차.png","description":"이주민 건강권 세미나 자료 요약 · 2 / 13"},{"id":10003,"title":"농축산어업 노동자","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/03_농축산어업_노동자.png","image":"assets/migrant-health/03_농축산어업_노동자.png","description":"이주민 건강권 세미나 자료 요약 · 3 / 13"},{"id":10004,"title":"이주아동 건강","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/04_이주아동_건강.png","image":"assets/migrant-health/04_이주아동_건강.png","description":"이주민 건강권 세미나 자료 요약 · 4 / 13"},{"id":10005,"title":"체류 장기화","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/05_체류_장기화.png","image":"assets/migrant-health/05_체류_장기화.png","description":"이주민 건강권 세미나 자료 요약 · 5 / 13"},{"id":10006,"title":"건강보험 미가입","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/06_건강보험_미가입.png","image":"assets/migrant-health/06_건강보험_미가입.png","description":"이주민 건강권 세미나 자료 요약 · 6 / 13"},{"id":10007,"title":"지역가입 제도차이","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/07_지역가입_제도차이.png","image":"assets/migrant-health/07_지역가입_제도차이.png","description":"이주민 건강권 세미나 자료 요약 · 7 / 13"},{"id":10008,"title":"의료비 지원사업","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/08_의료비_지원사업.png","image":"assets/migrant-health/08_의료비_지원사업.png","description":"이주민 건강권 세미나 자료 요약 · 8 / 13"},{"id":10009,"title":"이민정책 동향","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/09_이민정책_동향.png","image":"assets/migrant-health/09_이민정책_동향.png","description":"이주민 건강권 세미나 자료 요약 · 9 / 13"},{"id":10010,"title":"건강권의 근거","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/10_건강권의_근거.png","image":"assets/migrant-health/10_건강권의_근거.png","description":"이주민 건강권 세미나 자료 요약 · 10 / 13"},{"id":10011,"title":"보건소의 역할","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/11_보건소의_역할.png","image":"assets/migrant-health/11_보건소의_역할.png","description":"이주민 건강권 세미나 자료 요약 · 11 / 13"},{"id":10012,"title":"제도화 전략","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/12_제도화_전략.png","image":"assets/migrant-health/12_제도화_전략.png","description":"이주민 건강권 세미나 자료 요약 · 12 / 13"},{"id":10013,"title":"공통 과제","category":"다문화·이주민","type":"PNG","url":"assets/migrant-health/13_공통_과제.png","image":"assets/migrant-health/13_공통_과제.png","description":"이주민 건강권 세미나 자료 요약 · 13 / 13"}];
+ function withMigrantImages(list){
+   const existing=new Set(list.map(x=>x.url));
+   return list.concat(migrantHealthImages.filter(x=>!existing.has(x.url)));
+ }
+ records=withMigrantImages(records);
  function card(item){
   const article=document.createElement('article');article.className='lib-entry';article.dataset.cat=item.category;article.dataset.title=item.title;article.dataset.libOrder=String(item.id);
   const small=document.createElement('small');small.textContent=item.category+' · '+(item.type||'PDF');article.appendChild(small);
@@ -1953,7 +1960,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if(!data||!Array.isArray(data.items))throw Error('invalid manifest');
   const clean=data.items.filter(x=>x && Number.isFinite(Number(x.id)) && typeof x.title==='string' && typeof x.url==='string' && x.url.startsWith('assets/') && categories.includes(x.category))
     .map(x=>({...x,id:Number(x.id)}));
-  if(!clean.length)throw Error('empty manifest');records=clean;render();
+  if(!clean.length)throw Error('empty manifest');records=withMigrantImages(clean);render();
  }).catch(err=>{console.warn('자료 목록 파일을 불러오지 못하여 기본 자료를 표시합니다:',err);render()});
  render();
 })();
