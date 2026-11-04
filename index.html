@@ -203,7 +203,7 @@ header.hero h1,.hero-title h1{font-family:Pretendard,"Noto Sans KR",sans-serif;f
 #art-journey .art-label{font-size:.85rem;font-weight:800;color:#65568d;letter-spacing:.02em;margin:0 0 7px}
 #art-journey h2{font-size:clamp(1.5rem,4.8vw,2rem);margin:0 0 7px;letter-spacing:-.025em;color:#37304e}
 #art-journey .art-sub{margin:0 0 18px;font-size:1rem;line-height:1.65;color:#625e69}
-#art-journey .art-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:14px 0 17px}
+#art-journey .art-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0 17px}
 #art-journey .art-mini{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;border:1px solid #e1dfed;background:#fff;border-radius:15px;padding:14px 5px;color:#51446e;font-size:.92rem;font-weight:750;line-height:1.2}
 #art-journey .art-mini span:first-child{font-size:1.5rem}
 #art-journey details{border:1px solid #e4e1ec;border-radius:14px;background:#fff;margin:10px 0;overflow:hidden}
@@ -216,6 +216,7 @@ header.hero h1,.hero-title h1{font-family:Pretendard,"Noto Sans KR",sans-serif;f
 #art-journey .art-links a small{display:block;font-size:.86rem;font-weight:400;color:#65616f;margin-top:4px}
 #art-journey :is(a,summary):focus-visible{outline:3px solid #7965b7;outline-offset:2px}
 #art-journey .art-note{font-size:.84rem;color:#746f7b;margin:13px 0 0;line-height:1.55}
+@media(max-width:520px){#art-journey .art-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:420px){#art-journey{padding:18px 14px}#art-journey .art-mini{font-size:.9rem;padding:13px 2px}#art-journey .art-sub{font-size:.96rem}}
 </style>
 <style id="j127-usability-css">
@@ -1153,6 +1154,7 @@ else { init_gratitude_j127(); }
 <div class="art-mini"><span>🖼️</span><span>미술</span></div>
 <div class="art-mini"><span>📷</span><span>사진</span></div>
 <div class="art-mini"><span>🎼</span><span>클래식</span></div>
+<div class="art-mini"><span>🎤</span><span>세바시</span></div>
 </div>
 <details><summary>🖼️ 미술 · 주요 작품 감상</summary>
 <div class="art-links">
@@ -1171,6 +1173,11 @@ else { init_gratitude_j127(); }
 <div class="art-links">
 <a href="https://www.youtube.com/channel/UCwmgO3PhE925-mLG1h26Uow" rel="noopener noreferrer" target="_blank">서울시립교향악단 공식 채널 <small>클래식 연주 영상과 공연 관련 콘텐츠</small></a>
 <a href="https://www.arte.tv/en/arte-concert/classical" rel="noopener noreferrer" target="_blank">ARTE Concert · Classical <small>해외 오케스트라·독주회 영상 (일부 지역 제한 가능)</small></a>
+</div>
+</details>
+<details><summary>🎤 세바시 · 삶을 바꾸는 짧은 강연</summary>
+<div class="art-links">
+<a href="https://www.youtube.com/@sebasi15" rel="noopener noreferrer" target="_blank">세바시(세상을 바꾸는 시간 15분) 공식 유튜브 채널 <small>삶과 관계, 교육, 건강, 사회에 관한 다양한 한국어 강연</small></a>
 </div>
 </details>
 <p class="art-note">각 자료는 외부 공식 사이트에서 감상합니다. 작품 감상 및 영상 이용 조건은 제공처에 따라 다릅니다.</p>
