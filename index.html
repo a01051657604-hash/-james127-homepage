@@ -1991,6 +1991,12 @@ document.addEventListener('DOMContentLoaded', function () {
    const existing=new Set(list.map(x=>x.url));
    return list.concat(migrantHealthImages.filter(x=>!existing.has(x.url)));
  }
+ // 오래된 HTML 기본 목록에서도 삭제/누락 항목이 다시 나타나지 않도록 정리합니다.
+ records=records.filter(x=> !(
+  x.url==='assets/library/mission_health_education_part2_tagalog_2026.pptx' ||
+  x.url==='assets/library/multicultural_child_heart_vi_km_ur.pptx'
+ )).map(x=>x.url==='assets/library/doc-009-6bd9d391f91c.pptx'
+  ? {...x,url:'assets/library/doc-009-6bd9d391f91c.pdf',type:'PDF'} : x);
  records=withMigrantImages(records.map(x=>({...x,category:newCategory(x)})));
  function card(item){
   const article=document.createElement('article');article.className='lib-entry';article.dataset.cat=item.category;article.dataset.title=item.title;article.dataset.libOrder=String(item.id);
