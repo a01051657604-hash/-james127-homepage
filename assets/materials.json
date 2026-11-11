@@ -695,60 +695,6 @@
       "description": "현지에서 활용할 수 있는 따갈로그어 복음 메시지를 담은 PDF입니다."
     },
     {
-      "id": 80,
-      "title": "생명 주께 있네 · Buhay Ko’y Sa ’Yo Diyos",
-      "category": "의료선교·신앙",
-      "url": "assets/library/philippines_hymn_01_buhay_koy_sayo_diyos.png",
-      "image": "assets/library/philippines_hymn_01_buhay_koy_sayo_diyos.png",
-      "type": "PNG",
-      "description": "필리핀어 찬양 악보. 한글 발음과 코드 표기를 함께 볼 수 있습니다."
-    },
-    {
-      "id": 81,
-      "title": "Kay Buti-Buti Mo Panginoon · 주님은 참 좋으신 분",
-      "category": "의료선교·신앙",
-      "url": "assets/library/philippines_hymn_02_kay_buti_buti.png",
-      "image": "assets/library/philippines_hymn_02_kay_buti_buti.png",
-      "type": "PNG",
-      "description": "따갈로그어 악보, 한글 발음과 우리말 뜻을 함께 정리한 자료입니다."
-    },
-    {
-      "id": 82,
-      "title": "Halina’t Sama-sama · 모두 함께 찬양해요",
-      "category": "의료선교·신앙",
-      "url": "assets/library/philippines_hymn_03_halina_sama_sama.png",
-      "image": "assets/library/philippines_hymn_03_halina_sama_sama.png",
-      "type": "PNG",
-      "description": "따갈로그어 찬양 악보와 한글 발음·뜻을 함께 볼 수 있습니다."
-    },
-    {
-      "id": 83,
-      "title": "이 날은 · Ito ang Araw",
-      "category": "의료선교·신앙",
-      "url": "assets/library/philippines_hymn_04_ito_ang_araw.png",
-      "image": "assets/library/philippines_hymn_04_ito_ang_araw.png",
-      "type": "PNG",
-      "description": "찬양 악보와 따갈로그어 발음·우리말 뜻을 함께 정리했습니다."
-    },
-    {
-      "id": 84,
-      "title": "Buhay Buhay · 영원히 살아계신 주",
-      "category": "의료선교·신앙",
-      "url": "assets/library/philippines_hymn_05_buhay_buhay.png",
-      "image": "assets/library/philippines_hymn_05_buhay_buhay.png",
-      "type": "PNG",
-      "description": "따갈로그어 찬양 악보와 한국어 발음 안내입니다."
-    },
-    {
-      "id": 85,
-      "title": "Mahal Na Mahal Kita Panginoon · 주님 사랑합니다",
-      "category": "의료선교·신앙",
-      "url": "assets/library/philippines_hymn_06_mahal_na_mahal.png",
-      "image": "assets/library/philippines_hymn_06_mahal_na_mahal.png",
-      "type": "PNG",
-      "description": "따갈로그어 악보, 발음과 우리말 뜻이 표시된 찬양 자료입니다."
-    },
-    {
       "id": 86,
       "title": "필리핀어 찬양 모음집 · 6곡 악보 및 QR 영상",
       "category": "의료선교·신앙",
